@@ -1,3 +1,4 @@
+import { Merienda } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -8,10 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        primary: "#7FFFD4",
+        secondary: "#F2C641",
+        tertiary: {
+          dark: "#00FFFF",
+          light: "#48D1CC",
+        },
+      },
+      fontFamily: {
+        merienda: ["Merienda", "sans-serif"],
       },
     },
   },
