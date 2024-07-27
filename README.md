@@ -34,3 +34,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Attributes
+
+1. Image by <a href="https://www.freepik.com/free-vector/wavy-abstract-background_7010913.htm#query=purple%20wave&position=15&from_view=keyword&track=ais_user&uuid=cb9d5746-8ee3-4f66-b0ad-93a940dc826f">Freepik</a>
+2. <a href="https://www.freepik.com/free-vector/modern-colorful-stylish-wave-design-background_27079320.htm#from_view=detail_alsolike">Image by Creative_hat on Freepik</a>

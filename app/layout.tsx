@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Merienda } from "next/font/google";
 import "./globals.css";
-import ThemeProvider from "./Components/ThemeProvider/ThemeProvider";
+// import ThemeProvider from "./Components/ThemeProvider/ThemeProvider";
 import Header from "./Components/Header/Header";
 
 const inter = Merienda({
@@ -24,10 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>
-          <Header />
-          {children}
-        </ThemeProvider>
+        {/* <ThemeProvider> */}
+        <Header />
+        {children}
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );

@@ -29,9 +29,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
     <div className="theme-provider">
       <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
         <div className={`${darkTheme ? "dark" : ""} min-h-screen`}>
-          <div className="dark:text-white dark:bg-black text-[##1E1E1E]">
-            {children}
-          </div>
+          <div className="">{children}</div>
         </div>
       </ThemeContext.Provider>
     </div>
