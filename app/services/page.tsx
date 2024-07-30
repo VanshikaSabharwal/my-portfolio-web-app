@@ -1,6 +1,6 @@
 // import Services from "../Components/Service";
 // import Head from "next/head";
-// import React from "react";
+import React from "react";
 
 // const Service = () => {
 //   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -30,3 +30,12 @@
 //     </>
 //   );
 // };
+
+const services = () => {
+  return (
+    <>
+      <h1>services</h1>
+    </>
+  );
+};
+export default services;
