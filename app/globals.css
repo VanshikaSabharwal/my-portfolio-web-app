@@ -23,8 +23,8 @@
 
 /* about  */
 .aboutContainer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
   position: absolute;
   gap: 4rem;
   padding: 0 4rem;
@@ -41,6 +41,9 @@
   border-radius: 10px;
   margin: 20px 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.bgContent {
+  font-size: 1.2rem;
 }
 /* projects  */
 .projectContainer {
@@ -189,7 +192,18 @@ textarea {
 .terminal-font {
   font-family: "Hack", monospace;
 }
+.terminal-input {
+  background-color: #000000;
+}
 
+.terminalContainer {
+  background: black;
+  color: wheat;
+  width: 95%;
+  height: 450px;
+  margin: 1rem auto;
+  border-radius: 15px;
+}
 html,
 body,
 body > div:first-child,

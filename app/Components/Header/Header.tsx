@@ -13,8 +13,8 @@ const Header = () => {
   };
 
   return (
-    <header className="py-10 px-4 container mx-auto text-xl flex flex-wrap items-center justify-between headerContainer">
-      <div className="portfolioTitle">PortFolio</div>
+    <header className="py-10 bg-black px-4 container mx-auto text-xl flex flex-wrap items-center justify-between headerContainer">
+      <div className="portfolioTitle py-2.5 px-3">PortFolio</div>
       <div className="flex items-center md:hidden">
         <button onClick={toggleMenu} className="text-3xl">
           {menuOpen ? <IoCloseSharp /> : <IoReorderThreeSharp />}

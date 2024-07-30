@@ -6,8 +6,8 @@ import { RiTwitterXFill } from "react-icons/ri";
 const About = () => {
   return (
     <div className="flex flex-col">
-      <div className="aboutContainer flex items-center justify-center md:1/2 bg-about ">
-        <div className="grid grid-rows-1 grid-cols-2 md:grid-cols-none md:grid-rows-none items-center justify-center">
+      <div className="aboutContainer items-center justify-center md:1/2 bg-about ">
+        <div className="grid grid-rows-1 grid-cols-2 xs:grid-cols-none xs:flex xs:grid-rows-none items-center justify-center">
           <div className="bgContent">
             <h1 className="text-3xl font-bold text-black">About Me</h1>
             <p className="text-black">
@@ -29,7 +29,7 @@ const About = () => {
         </div>
         <ul className="flex flex-col items-center justify-center about-contact-section">
           <li>
-            <a href="mailto:vanshikasabharwal03@gmail" className="text-xs">
+            <a href="mailto:vanshikasabharwal03@gmail" className="text-sm">
               vanshikasabharwal03@gmail.com
             </a>
           </li>

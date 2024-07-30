@@ -94,7 +94,7 @@ export const Terminal: React.FC<TerminalProps> = ({
         type="text"
         ref={inputRef}
         id="prompt"
-        className={`terminal-font bg-light-background focus:outline-none flex-grow ${
+        className={`terminal-input terminal-font bg-light-background focus:outline-none flex-grow ${
           exitCommand(command) || command === ""
             ? "text-dark-green"
             : "text-dark-red"
