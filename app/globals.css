@@ -20,7 +20,9 @@
 .linkContainer a {
   margin: 12px 20px;
 }
-
+.linkContainerVertical {
+  display: none;
+}
 /* about  */
 .aboutContainer {
   display: grid;
@@ -45,6 +47,7 @@
 .bgContent {
   font-size: 1.2rem;
 }
+
 /* projects  */
 .projectContainer {
   background-color: #efe7f4;
@@ -237,4 +240,19 @@ div#__next > div {
 
 .scale-animation {
   @apply hover:scale-125 transition-all duration-700 rounded-3xl;
+}
+
+/* media  */
+@media (max-width: 750px) {
+  .aboutFlex {
+    display: flex;
+    margin: 15px 10px;
+  }
+  .linkContainer {
+    display: none;
+  }
+  .linkContainerVertical {
+    display: flex;
+    flex-direction: column;
+  }
 }
