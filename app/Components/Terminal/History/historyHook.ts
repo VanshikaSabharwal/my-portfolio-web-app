@@ -1,11 +1,5 @@
 import React from "react";
-
-interface History {
-  id: number;
-  date: Date;
-  command: string;
-  output: string;
-}
+import { History } from "./HistoryInterface";
 
 export default function useHistory(defaultValue: Array<History>) {
   const [history, setHistory] = React.useState<Array<History>>(defaultValue);
