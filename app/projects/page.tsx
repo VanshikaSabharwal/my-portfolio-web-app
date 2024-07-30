@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Link } from "react-router-dom";
 import Image from "next/image";
 import { TiArrowRightThick } from "react-icons/ti";
 import { IoLogoGithub } from "react-icons/io5";

@@ -9,9 +9,9 @@ export const projects = async (args: string[]): Promise<string> => {
   return projects
     .map(
       (repo: any) =>
-        `${repo.name} - <a class="text-light-blue dark:text-dark-blue underline" href="${repo.html_url}" target="_blank">${repo.html_url}</a>`
+        `   -->${repo.name} - <a class="text-light-blue dark:text-dark-blue underline" href="${repo.html_url}" target="_blank">${repo.html_url}  </a>`
     )
-    .join("\n");
+    .join("\n  ");
 };
 
 export const quote = async (args: string[]): Promise<string> => {
@@ -22,10 +22,10 @@ export const quote = async (args: string[]): Promise<string> => {
 export const weather = async (args: string[]): Promise<string> => {
   const city = args.join("+");
   if (!city) {
-    return "Usage: Weather [city]. Example :Weather Delhi";
+    return "Usage: weather [city]. Example :Weather Delhi";
   }
   const weather = await getWeather(city);
-  return `Weather in ${city} is ${weather.main.temp} degree Celsius.`;
+  return weather;
 };
 export const readme = async () => {
   const readme = await getReadMe();

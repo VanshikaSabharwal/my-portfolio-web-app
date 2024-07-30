@@ -1,19 +1,21 @@
-import * as bin from "./index";
+import * as justBin from "./index";
 import config from "../../config.json";
 
 // help cmd
 export const help = async () => {
-  const commands = Object.keys(bin).sort().join(", ");
+  const commands = Object.keys(justBin).sort().join(", ");
 
   var c = "";
-  for (let i = 0; i <= Object.keys(bin).sort().length; i++) {
+  for (let i = 1; i <= Object.keys(justBin).sort().length; i++) {
     if (i % 7 === 0) {
-      c += Object.keys(bin).sort()[i - 1] + "\n";
+      c += Object.keys(justBin).sort()[i - 1] + "\n";
     } else {
-      c += Object.keys(bin).sort()[i - 1] + " ";
+      c += Object.keys(justBin).sort()[i - 1] + "\n";
     }
   }
-  return `Welcome! Here are all Commands:\n${c}\n
+
+  return `Welcome! Here are all Commands:
+  ${c}
   [tab]:auto completion.
   [ctrl+l]/clear: clear terminal.\n
   Type "fetchall" to display summary.
