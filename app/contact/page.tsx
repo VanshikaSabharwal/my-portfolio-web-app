@@ -1,41 +1,136 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
+import Link from "next/link";
 
-const page = () => {
+const Page = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Reset status
+    setStatus(null);
+
+    try {
+      const response = await fetch("/api/sendmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus("Email sent successfully!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("Failed to send email. Please try again.");
+      }
+    } catch (error) {
+      setStatus("An error occurred. Please try again.");
+      console.error("Error sending email:", error);
+    }
+  };
+
   return (
-    <div className="contactContainer">
-      <div className="contactme">
-        <h1 className="text-lg contact-title">Contact Me</h1>
-      </div>
-      <div className="form">
-        <form action="">
-          <div className="nameForm">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="Your Name" />
+    <div className="min-h-screen py-12 px-4 md:px-8 lg:px-16 bg-[#f0f4f8] text-gray-900">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-[#f32170]">Contact Me</h1>
+        </div>
+        <div className="space-y-6">
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="flex flex-col">
+              <label htmlFor="name" className="text-lg font-semibold mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your Name"
+                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f32170] transition duration-300"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="email" className="text-lg font-semibold mb-2">
+                E-mail
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your Email"
+                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f32170] transition duration-300"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="message" className="text-lg font-semibold mb-2">
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Let's Talk"
+                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f32170] transition duration-300 h-32 resize-none"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#f32170] text-white py-3 rounded-lg hover:bg-[#cf23cf] transition duration-300"
+            >
+              Submit
+            </button>
+            {status && (
+              <p
+                className={`mt-4 text-center ${
+                  status.includes("successfully")
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {status}
+              </p>
+            )}
+          </form>
+          <div className="flex justify-center space-x-6 mt-6">
+            <Link
+              href="https://www.linkedin.com/in/vanshika-sabharwal-867237284/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#0077b5] hover:text-[#005582] transition duration-300"
+            >
+              <FaLinkedin className="text-3xl" />
+            </Link>
+            <Link
+              href="https://x.com/Vanshika_0006"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#1da1f2] hover:text-[#0d95e8] transition duration-300"
+            >
+              <RiTwitterXFill className="text-3xl" />
+            </Link>
           </div>
-          <div className="emailForm">
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your Email"
-            />
-          </div>
-          <div className="message">
-            <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Let's Talk"
-            ></textarea>
-          </div>
-          <button className="submit-btn">Submit</button>
-        </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;
