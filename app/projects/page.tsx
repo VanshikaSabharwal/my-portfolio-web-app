@@ -28,10 +28,10 @@ const Projects = () => {
             items from anywhere, anytime.
           </p>
           <div className="flex space-x-4 mt-4">
-            <Link href="https://vanshikasabharwal.github.io/bakeryWebsite-V1/">
+            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
               <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
-            <Link href="https://github.com/VanshikaSabharwal/bakeryWebsite-V1">
+            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
               <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
           </div>
@@ -52,10 +52,10 @@ const Projects = () => {
             seamless peer-to-peer payments and fund management.
           </p>
           <div className="flex space-x-4 mt-4">
-            <Link href="https://vanshikasabharwal.github.io/bakeryWebsite-V1/">
+            <Link href="https://github.com/VanshikaSabharwal/v-wallet">
               <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
-            <Link href="https://github.com/VanshikaSabharwal/bakeryWebsite-V1">
+            <Link href="https://github.com/VanshikaSabharwal/v-wallet">
               <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
           </div>
@@ -77,10 +77,10 @@ const Projects = () => {
             games.
           </p>
           <div className="flex space-x-4 mt-4">
-            <Link href="https://vanshikasabharwal.github.io/bakeryWebsite-V1/">
+            <Link href="https://github.com/VanshikaSabharwal/Nintendo-clone">
               <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
-            <Link href="https://github.com/VanshikaSabharwal/bakeryWebsite-V1">
+            <Link href="https://github.com/VanshikaSabharwal/Nintendo-clone">
               <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
           </div>
