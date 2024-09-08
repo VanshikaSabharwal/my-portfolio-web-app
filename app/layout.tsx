@@ -3,7 +3,6 @@ import Head from "next/head";
 import { Merienda } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Header/Header"; // Ensure the path is correct
-import InputTerminal from "./Components/InputTerminal/InputTerminal";
 
 const inter = Merienda({
   subsets: ["latin"],
@@ -41,7 +40,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         {/* <ThemeProvider> */}
         <Header />
         {children}
-        <InputTerminal />
         {/* </ThemeProvider> */}
       </body>
     </html>

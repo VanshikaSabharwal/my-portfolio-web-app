@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
