@@ -1,9 +1,9 @@
 import { SiLeetcode } from "react-icons/si";
-import { FaHackerrank } from "react-icons/fa";
+import { FaHackerrank, FaLinkedin } from "react-icons/fa";
+import { RiTwitterXFill } from "react-icons/ri";
 import { IoLogoGithub } from "react-icons/io";
 import { TbBrandFiverr } from "react-icons/tb";
 import { FaSquareUpwork } from "react-icons/fa6";
-
 import Link from "next/link";
 
 const Services = () => {
@@ -55,6 +55,84 @@ const Services = () => {
             <FaSquareUpwork className="text-4xl text-blue-600 mb-2" />
             <p className="text-sm font-semibold">Upwork</p>
           </Link>
+        </div>
+
+        {/* LinkedIn */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://www.linkedin.com/in/vanshika-sabharwal-867237284/">
+            <FaLinkedin className="text-4xl text-blue-700 mb-2" />
+            <p className="text-sm font-semibold">LinkedIn</p>
+          </Link>
+        </div>
+
+        {/* X (formerly Twitter) */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://x.com/Vanshika_0006">
+            <RiTwitterXFill className="text-4xl text-blue-500 mb-2" />
+            <p className="text-sm font-semibold">X.com</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* Skill Tree Section */}
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold text-center mb-8 text-[#f32170]">
+          My Skills
+        </h2>
+        <div className="flex flex-col items-center">
+          {/* Full Stack Development */}
+          <div className="w-full flex justify-center">
+            <div className="p-4 bg-white shadow-lg rounded-lg text-center">
+              <p className="font-bold text-lg">Full Stack Development</p>
+            </div>
+          </div>
+
+          {/* Branches: Frontend, Backend, DevOps */}
+          <div className="flex justify-around mt-6 w-full max-w-xl">
+            {/* Frontend */}
+            <div className="flex flex-col items-center">
+              <div className="p-3 bg-white shadow-md rounded-lg text-center">
+                <p className="font-semibold">Frontend</p>
+              </div>
+              <ul className="mt-4 space-y-2 text-center">
+                <li>React.js</li>
+                <li>Redux</li>
+                <li>Recoil</li>
+                <li>Next.js</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+              </ul>
+            </div>
+
+            {/* Backend */}
+            <div className="flex flex-col items-center">
+              <div className="p-3 bg-white shadow-md rounded-lg text-center">
+                <p className="font-semibold">Backend</p>
+              </div>
+              <ul className="mt-4 space-y-2 text-center">
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>Prisma</li>
+                <li>Postgres</li>
+                <li>AWS</li>
+                <li>GraphQL</li>
+              </ul>
+            </div>
+
+            {/* DevOps */}
+            <div className="flex flex-col items-center">
+              <div className="p-3 bg-white shadow-md rounded-lg text-center">
+                <p className="font-semibold">DevOps</p>
+              </div>
+              <ul className="mt-4 space-y-2 text-center">
+                <li>Dockerization</li>
+                <li>Kubernetes</li>
+                <li>Terraform</li>
+                <li>Helm</li>
+                <li>CI/CD</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

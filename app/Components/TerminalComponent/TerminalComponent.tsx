@@ -1,4 +1,3 @@
-// components/TerminalComponent.tsx
 "use client";
 import React from "react";
 import Head from "next/head";
@@ -56,11 +55,11 @@ const TerminalComponent: React.FC = () => {
         <title>{config.title}</title>
       </Head>
       <div
-        className="p-8 terminalContainer overflow-hidden h-full border-2 rounded border-light-yellow dark:border-dark-yellow"
+        className="p-4 sm:p-6 md:p-8 terminalContainer overflow-hidden h-full border-2 rounded-lg border-light-yellow dark:border-dark-yellow bg-black dark:bg-dark-gray text-white dark:text-light-yellow"
         ref={containerRef}
-        onClick={handleContainerClick} // Added onClick handler here
+        onClick={handleContainerClick}
       >
-        <div className="overflow-y-auto h-full">
+        <div className="overflow-y-auto h-full text-xs sm:text-sm md:text-base">
           <History history={history} />
           <Terminal
             inputRef={inputRef}

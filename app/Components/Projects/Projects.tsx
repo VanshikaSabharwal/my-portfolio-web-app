@@ -14,30 +14,6 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
           <Image
-            src="/images/hotel-management.png"
-            alt="Bakery Website Project"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
-          <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
-            Hotel-Management-Web-App
-          </h2>
-          <p className="text-gray-700 mt-2 text-center">
-            A website to meet the desire of exploring cakes and other bakery
-            items from anywhere, anytime.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
-              <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
-              <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-          <Image
             src="/images/v_wallet.png"
             alt="Bakery Website Project"
             width={300}
@@ -52,7 +28,7 @@ const Projects = () => {
             seamless peer-to-peer payments and fund management.
           </p>
           <div className="flex space-x-4 mt-4">
-            <Link href="https://github.com/VanshikaSabharwal/v-wallet">
+            <Link href="https://v-wallet-user-app.vercel.app/">
               <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
             <Link href="https://github.com/VanshikaSabharwal/v-wallet">
@@ -81,6 +57,30 @@ const Projects = () => {
               <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
             <Link href="https://github.com/VanshikaSabharwal/Nintendo-clone">
+              <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
+            </Link>
+          </div>
+        </div>{" "}
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
+          <Image
+            src="/images/hotel-management.png"
+            alt="Bakery Website Project"
+            width={300}
+            height={200}
+            className="rounded-lg"
+          />
+          <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
+            Hotel-Management-Web-App
+          </h2>
+          <p className="text-gray-700 mt-2 text-center">
+            A website to meet the desire of exploring cakes and other bakery
+            items from anywhere, anytime.
+          </p>
+          <div className="flex space-x-4 mt-4">
+            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
+              <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
+            </Link>
+            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
               <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
             </Link>
           </div>
