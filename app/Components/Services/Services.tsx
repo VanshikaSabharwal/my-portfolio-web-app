@@ -76,9 +76,6 @@ const Services = () => {
 
       {/* Skill Tree Section */}
       <div className="mt-16">
-        <h2 className="text-2xl font-bold text-center mb-8 text-[#f32170]">
-          My Skills
-        </h2>
         <div className="flex flex-col items-center">
           {/* Full Stack Development */}
           <div className="w-full flex justify-center">
