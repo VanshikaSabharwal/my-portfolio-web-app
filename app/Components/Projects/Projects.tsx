@@ -1,115 +1,112 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TiArrowRightThick } from "react-icons/ti";
 import { IoLogoGithub } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
+import projectData from "../../../projects.json";
 
 const Projects = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [projectImages, setProjectImages] = useState([]);
+
+  const openModal = (images: any) => {
+    setProjectImages(images);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setCurrentImage(0);
+  };
+
+  const nextImage = () => {
+    setCurrentImage((prevImage) => (prevImage + 1) % projectImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage(
+      (prevImage) =>
+        (prevImage - 1 + projectImages.length) % projectImages.length
+    );
+  };
+
   return (
     <div className="min-h-screen py-12 px-4 md:px-8 lg:px-16 bg-[#f0f4f8] text-gray-900">
       <h1 className="text-center text-4xl font-bold mb-4 text-[#f32170]">
         Projects
       </h1>
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-          <Image
-            src="/images/v_wallet.png"
-            alt="Bakery Website Project"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
-          <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
-            V-Wallet-Web-App
-          </h2>
-          <p className="text-gray-700 mt-2 text-center">
-            V Wallet is a web app inspired by Paytm, offering secure and
-            seamless peer-to-peer payments and fund management.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <Link href="https://v-wallet-user-app.vercel.app/">
-              <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-            <Link href="https://github.com/VanshikaSabharwal/v-wallet">
-              <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
+        {projectData.map((project, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"
+          >
+            <Image
+              src={project.imageUrls[0]}
+              alt={`${project.name} Project`}
+              width={300}
+              height={200}
+              className="rounded-lg cursor-pointer"
+              onClick={() => openModal(project.imageUrls)}
+            />
+            <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
+              {project.name}
+            </h2>
+            <p className="text-gray-700 mt-2 text-center">
+              {project.description}
+            </p>
+            <div className="flex space-x-4 mt-4">
+              <Link href={project.liveUrl}>
+                <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
+              </Link>
+              <Link href={project.githubUrl}>
+                <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-          <Image
-            src="/images/nintendo-clone.png"
-            alt="Bakery Website Project"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
-          <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
-            Nintendo-Clone-Web-App
-          </h2>
-          <p className="text-gray-700 mt-2 text-center">
-            Nintendo Clone Web App is a web app inspired by the official
-            Nintendo app, providing features for managing and exploring Nintendo
-            games.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <Link href="https://github.com/VanshikaSabharwal/Nintendo-clone">
-              <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-            <Link href="https://github.com/VanshikaSabharwal/Nintendo-clone">
-              <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-          </div>
-        </div>{" "}
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-          <Image
-            src="/images/hotel-management.png"
-            alt="Bakery Website Project"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
-          <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
-            Hotel-Management-Web-App
-          </h2>
-          <p className="text-gray-700 mt-2 text-center">
-            A website to meet the desire of exploring cakes and other bakery
-            items from anywhere, anytime.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
-              <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-            <Link href="https://github.com/VanshikaSabharwal/hotel-management-webApp">
-              <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
-          <Image
-            src="/images/bakery-website.png"
-            alt="Bakery Website Project"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
-          <h2 className="text-2xl font-bold mt-4 text-[#f32170]">
-            Bakery Website
-          </h2>
-          <p className="text-gray-700 mt-2 text-center">
-            A website to meet the desire of exploring cakes and other bakery
-            items from anywhere, anytime.
-          </p>
-          <div className="flex space-x-4 mt-4">
-            <Link href="https://vanshikasabharwal.github.io/bakeryWebsite-V1/">
-              <TiArrowRightThick className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-            <Link href="https://github.com/VanshikaSabharwal/bakeryWebsite-V1">
-              <IoLogoGithub className="text-[#cf23cf] hover:text-[#f32170] transition duration-300 text-2xl" />
-            </Link>
-          </div>
-        </div>
+        ))}
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black bg-opacity-50"
+            onClick={closeModal}
+          ></div>
+          <div className="relative bg-white p-6 rounded-lg max-w-2xl w-full mx-auto">
+            <button
+              className="absolute top-2 right-2 text-2xl text-gray-700 hover:text-gray-500"
+              onClick={closeModal}
+            >
+              <AiOutlineClose />
+            </button>
+            <Image
+              src={projectImages[currentImage]}
+              alt="Project Image"
+              width={600}
+              height={400}
+              className="rounded-lg"
+            />
+            <div className="flex justify-between mt-4">
+              <button
+                onClick={prevImage}
+                className="text-gray-700 text-2xl hover:text-[#f32170]"
+              >
+                &lt;
+              </button>
+              <button
+                onClick={nextImage}
+                className="text-gray-700 text-2xl hover:text-[#f32170]"
+              >
+                &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
