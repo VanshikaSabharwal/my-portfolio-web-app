@@ -1,5 +1,16 @@
 [
   {
+    "name": "Code Colab Crew",
+    "description": "A website to meet the desire of working on projects together as a team in real time.",
+    "imageUrls": [
+      "/images/colab-1.png",
+      "/images/colab-2.png",
+      "/images/colab-3.png"
+    ],
+    "liveUrl": "https://code-colab-crew.vercel.app/",
+    "githubUrl": "https://github.com/VanshikaSabharwal/co-lab"
+  },
+  {
     "name": "V-Wallet-Web-App",
     "description": "V Wallet is a web app inspired by Paytm, offering secure and seamless peer-to-peer payments and fund management.",
     "imageUrls": [
@@ -39,16 +50,5 @@
     ],
     "liveUrl": "https://vanshikasabharwal.github.io/bakeryWebsite-V1/",
     "githubUrl": "https://github.com/VanshikaSabharwal/bakeryWebsite-V1"
-  },
-  {
-    "name": "Code Colab Crew",
-    "description": "A website to meet the desire of working on projects together as a team in real time.",
-    "imageUrls": [
-      "/images/colab-1.png",
-      "/images/colab-2.png",
-      "/images/colab-3.png"
-    ],
-    "liveUrl": "https://code-colab-crew.vercel.app/",
-    "githubUrl": "https://github.com/VanshikaSabharwal/co-lab"
   }
 ]
