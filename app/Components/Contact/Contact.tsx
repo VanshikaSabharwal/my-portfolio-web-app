@@ -111,7 +111,7 @@ const Contact = () => {
           </form>
           <div className="flex justify-center space-x-6 mt-6">
             <Link
-              href="https://www.linkedin.com/in/vanshika-sabharwal-867237284/"
+              href="https://www.linkedin.com/in/vanshikasabharwal0006/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#0077b5] hover:text-[#005582] transition duration-300"

@@ -6,6 +6,7 @@ import { TbBrandFiverr } from "react-icons/tb";
 import { FaSquareUpwork } from "react-icons/fa6";
 import { SiGeeksforgeeks } from "react-icons/si";
 import { SiCodeforces } from "react-icons/si";
+import { SiCodechef } from "react-icons/si";
 import Link from "next/link";
 
 const Services = () => {
@@ -86,7 +87,7 @@ const Services = () => {
         {/*Code Chef */}
         <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
           <Link href="https://www.codechef.com/users/vanshika0006">
-            <SiCodeforces className="text-4xl text-green-600 mb-2" />
+            <SiCodechef className="text-4xl text-green-600 mb-2" />
             <p className="text-sm font-semibold">Code Chef</p>
           </Link>
         </div>
