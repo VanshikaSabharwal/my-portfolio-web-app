@@ -1,13 +1,13 @@
 [
   {
-    "name": "Code Colab Crew",
+    "name": "Ko-lab",
     "description": "A website to meet the desire of working on projects together as a team in real time.",
     "imageUrls": [
       "/images/colab-1.png",
       "/images/colab-2.png",
       "/images/colab-3.png"
     ],
-    "liveUrl": "https://code-colab-crew.vercel.app/",
+    "liveUrl": "https://ko-lab.vercel.app/",
     "githubUrl": "https://github.com/VanshikaSabharwal/co-lab"
   },
   {

@@ -43,7 +43,7 @@ const About = () => {
             </Link>
           </li>
           <li>
-            <Link href="https://www.linkedin.com/in/vanshika-sabharwal-867237284/">
+            <Link href="https://www.linkedin.com/in/vanshikasabharwal0006/">
               <FaLinkedin className="text-3xl hover:text-[#0077b5] transition duration-300" />
             </Link>
           </li>
@@ -63,7 +63,7 @@ const About = () => {
             </Link>
           </li>
           <li>
-            <Link href="https://leetcode.com/u/0rxMRmM6UV/">
+            <Link href="https://leetcode.com/u/vanshika__sabharwal/">
               <SiLeetcode className="text-3xl hover:text-[#f14e5b] transition duration-300" />
             </Link>
           </li>

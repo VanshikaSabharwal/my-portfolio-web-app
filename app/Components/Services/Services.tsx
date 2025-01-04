@@ -4,6 +4,8 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { IoLogoGithub } from "react-icons/io";
 import { TbBrandFiverr } from "react-icons/tb";
 import { FaSquareUpwork } from "react-icons/fa6";
+import { SiGeeksforgeeks } from "react-icons/si";
+import { SiCodeforces } from "react-icons/si";
 import Link from "next/link";
 
 const Services = () => {
@@ -19,9 +21,17 @@ const Services = () => {
       <div className="flex flex-wrap justify-center items-center gap-8">
         {/* LeetCode */}
         <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
-          <Link href="https://leetcode.com/u/0rxMRmM6UV/">
+          <Link href="https://leetcode.com/u/vanshika__sabharwal/">
             <SiLeetcode className="text-4xl text-[#f14e5b] mb-2" />
             <p className="text-sm font-semibold">LeetCode</p>
+          </Link>
+        </div>
+
+        {/* GFG */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://www.geeksforgeeks.org/user/vanshika_sabharwal/">
+            <SiGeeksforgeeks className="text-4xl text-green-500 mb-2" />
+            <p className="text-sm font-semibold">GFG</p>
           </Link>
         </div>
 
@@ -41,25 +51,9 @@ const Services = () => {
           </Link>
         </div>
 
-        {/* Fiverr */}
-        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
-          <Link href="https://www.fiverr.com/vanshika200000">
-            <TbBrandFiverr className="text-4xl text-green-600 mb-2" />
-            <p className="text-sm font-semibold">Fiverr</p>
-          </Link>
-        </div>
-
-        {/* Upwork */}
-        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
-          <Link href="https://www.upwork.com/freelancers/~0119b5c2cd48443fed">
-            <FaSquareUpwork className="text-4xl text-blue-600 mb-2" />
-            <p className="text-sm font-semibold">Upwork</p>
-          </Link>
-        </div>
-
         {/* LinkedIn */}
         <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
-          <Link href="https://www.linkedin.com/in/vanshika-sabharwal-867237284/">
+          <Link href="https://www.linkedin.com/in/vanshikasabharwal0006/">
             <FaLinkedin className="text-4xl text-blue-700 mb-2" />
             <p className="text-sm font-semibold">LinkedIn</p>
           </Link>
@@ -70,6 +64,38 @@ const Services = () => {
           <Link href="https://x.com/Vanshika_0006">
             <RiTwitterXFill className="text-4xl text-blue-500 mb-2" />
             <p className="text-sm font-semibold">X.com</p>
+          </Link>
+        </div>
+
+        {/* Fiverr */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://www.fiverr.com/vanshika200000">
+            <TbBrandFiverr className="text-4xl text-green-600 mb-2" />
+            <p className="text-sm font-semibold">Fiverr</p>
+          </Link>
+        </div>
+
+        {/*CodeForces */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://codeforces.com/profile/vanshika_sabharwal">
+            <SiCodeforces className="text-4xl text-green-600 mb-2" />
+            <p className="text-sm font-semibold">Code Forces </p>
+          </Link>
+        </div>
+
+        {/*Code Chef */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://www.codechef.com/users/vanshika0006">
+            <SiCodeforces className="text-4xl text-green-600 mb-2" />
+            <p className="text-sm font-semibold">Code Chef</p>
+          </Link>
+        </div>
+
+        {/* Upwork */}
+        <div className="w-24 h-24 flex flex-col items-center justify-center rounded-lg bg-white shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+          <Link href="https://www.upwork.com/freelancers/~0119b5c2cd48443fed">
+            <FaSquareUpwork className="text-4xl text-blue-600 mb-2" />
+            <p className="text-sm font-semibold">Upwork</p>
           </Link>
         </div>
       </div>
