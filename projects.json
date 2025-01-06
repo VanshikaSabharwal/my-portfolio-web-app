@@ -23,6 +23,17 @@
     "githubUrl": "https://github.com/VanshikaSabharwal/v-wallet"
   },
   {
+    "name": "Bakery Website",
+    "description": "A website to meet the desire of exploring cakes and other bakery items from anywhere, anytime.",
+    "imageUrls": [
+      "/images/bakery-1.png",
+      "/images/bakery-2.png",
+      "/images/bakery-3.png"
+    ],
+    "liveUrl": "https://vanshikasabharwal.github.io/bakeryWebsite-V1/",
+    "githubUrl": "https://github.com/VanshikaSabharwal/bakeryWebsite-V1"
+  },
+  {
     "name": "Nintendo-Clone-Web-App",
     "description": "Nintendo Clone Web App is a web app inspired by the official Nintendo app, providing features for managing and exploring Nintendo games.",
     "imageUrls": [
@@ -39,16 +50,5 @@
     "imageUrls": ["/images/hotel-1.png"],
     "liveUrl": "https://github.com/VanshikaSabharwal/hotel-management-webApp",
     "githubUrl": "https://github.com/VanshikaSabharwal/hotel-management-webApp"
-  },
-  {
-    "name": "Bakery Website",
-    "description": "A website to meet the desire of exploring cakes and other bakery items from anywhere, anytime.",
-    "imageUrls": [
-      "/images/bakery-1.png",
-      "/images/bakery-2.png",
-      "/images/bakery-3.png"
-    ],
-    "liveUrl": "https://vanshikasabharwal.github.io/bakeryWebsite-V1/",
-    "githubUrl": "https://github.com/VanshikaSabharwal/bakeryWebsite-V1"
   }
 ]
