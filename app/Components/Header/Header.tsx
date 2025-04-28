@@ -14,17 +14,14 @@ const Header = () => {
 
   // React Spring Animation for Menu
   const menuAnimation = useSpring({
-    transform: menuOpen ? "translateX(0%)" : "translateX(-100%)", // This ensures menu comes from the left
+    transform: menuOpen ? "translateX(0%)" : "translateX(-100%)", // This ensures the menu comes from the left
     opacity: menuOpen ? 1 : 0,
     config: { tension: 250, friction: 20 },
   });
 
   const HorizontalNav = () => {
     return (
-      <animated.div
-        style={menuAnimation}
-        className="md:flex items-center flex-wrap w-full md:w-2/3 linkContainer"
-      >
+      <div className="md:flex items-center justify-start w-full linkContainer">
         <Link
           href="/"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
@@ -61,7 +58,7 @@ const Header = () => {
         >
           Contact
         </Link>
-      </animated.div>
+      </div>
     );
   };
 
@@ -112,7 +109,7 @@ const Header = () => {
   };
 
   return (
-    <header className="py-10 bg-black px-4 container text-xl flex flex-wrap items-center justify-between headerContainer">
+    <header className="py-4 bg-black px-4 container text-xl flex flex-wrap items-center justify-between headerContainer">
       <div className="portfolioTitle py-2.5 px-3">PortFolio</div>
 
       {/* Hamburger Icon for Mobile View */}
