@@ -72,8 +72,13 @@ const About = () => {
             </Link>
           </li>
           <li>
+<<<<<<< HEAD
             <Link href="https://www.linkedin.com/in/vanshikasabharwal0006/">
               <FaLinkedin className="text-3xl text-gray-400 hover:text-[#0077b5] transition duration-300" />
+=======
+            <Link href="https://www.linkedin.com/in/--vanshika--/">
+              <FaLinkedin className="text-3xl hover:text-[#0077b5] transition duration-300" />
+>>>>>>> f66e51b10f3bf95f6f786a56b23b470b8e60944b
             </Link>
           </li>
           <li>
