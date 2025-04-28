@@ -64,7 +64,7 @@ const About = () => {
 
         {/* Social Media Links */}
         <ul className="flex flex-wrap justify-center mt-8 space-y-4 md:space-y-0 space-x-6">
-          <li>
+          <li className="w-full text-center mb-2">
             <Link href="mailto:vanshikasabharwal03@gmail.com">
               <span className="text-sm md:text-lg hover:underline text-gray-300 hover:text-[#f5deb3] transition-colors duration-300">
                 vanshikasabharwal03@gmail.com
@@ -72,13 +72,8 @@ const About = () => {
             </Link>
           </li>
           <li>
-<<<<<<< HEAD
-            <Link href="https://www.linkedin.com/in/vanshikasabharwal0006/">
-              <FaLinkedin className="text-3xl text-gray-400 hover:text-[#0077b5] transition duration-300" />
-=======
             <Link href="https://www.linkedin.com/in/--vanshika--/">
               <FaLinkedin className="text-3xl hover:text-[#0077b5] transition duration-300" />
->>>>>>> f66e51b10f3bf95f6f786a56b23b470b8e60944b
             </Link>
           </li>
           <li>
