@@ -3,19 +3,27 @@ import { useState } from "react";
 import Link from "next/link";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
+import { useSpring, animated } from "@react-spring/web";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  // React Spring Animation for Menu
+  const menuAnimation = useSpring({
+    transform: menuOpen ? "translateX(0%)" : "translateX(-100%)", // This ensures menu comes from the left
+    opacity: menuOpen ? 1 : 0,
+    config: { tension: 250, friction: 20 },
+  });
+
   const HorizontalNav = () => {
     return (
-      <div
-        className={`${
-          menuOpen ? "block" : "hidden"
-        } md:flex items-center flex-wrap w-full md:w-2/3 linkContainer`}
+      <animated.div
+        style={menuAnimation}
+        className="md:flex items-center flex-wrap w-full md:w-2/3 linkContainer"
       >
         <Link
           href="/"
@@ -53,15 +61,15 @@ const Header = () => {
         >
           Contact
         </Link>
-      </div>
+      </animated.div>
     );
   };
+
   const VerticalNav = () => {
     return (
-      <div
-        className={`${
-          menuOpen ? "block" : "hidden"
-        } md:flex linkContainerVertical items-center flex-wrap w-full flex flex-col md:w-2/3 `}
+      <animated.div
+        style={menuAnimation}
+        className="md:flex linkContainerVertical items-center flex-wrap w-full flex flex-col md:w-2/3 pt-16 space-y-4"
       >
         <Link
           href="/"
@@ -99,20 +107,43 @@ const Header = () => {
         >
           Contact
         </Link>
-      </div>
+      </animated.div>
     );
   };
 
   return (
     <header className="py-10 bg-black px-4 container text-xl flex flex-wrap items-center justify-between headerContainer">
       <div className="portfolioTitle py-2.5 px-3">PortFolio</div>
-      <div className="flex flex-row items-center md:hidden">
+
+      {/* Hamburger Icon for Mobile View */}
+      <div className="flex flex-row items-center md:hidden z-50">
         <button onClick={toggleMenu} className="text-3xl text-white">
-          {menuOpen ? <IoReorderThreeSharp /> : <IoCloseSharp />}
+          {menuOpen ? <IoCloseSharp /> : <IoReorderThreeSharp />}
         </button>
       </div>
 
-      {menuOpen ? <HorizontalNav /> : <VerticalNav />}
+      {/* Menu for Desktop */}
+      <div className="hidden md:flex items-center justify-between w-full">
+        <HorizontalNav />
+      </div>
+
+      {/* Menu for Mobile */}
+      <div className="md:hidden w-full">
+        <animated.div
+          style={menuAnimation}
+          className="absolute top-0 left-0 w-full h-screen bg-black z-50"
+        >
+          {/* Close button inside the menu */}
+          {menuOpen && (
+            <div className="absolute top-5 right-5 z-50">
+              <button onClick={toggleMenu} className="text-3xl text-white">
+                <IoCloseSharp />
+              </button>
+            </div>
+          )}
+          <VerticalNav />
+        </animated.div>
+      </div>
     </header>
   );
 };
