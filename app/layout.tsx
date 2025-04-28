@@ -36,7 +36,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </Head>
-      <body className={inter.className}>
+      <body className={inter.className} style={{ backgroundColor: "#D8C7B4" }}>
         {/* <ThemeProvider> */}
         <Header />
         {children}
@@ -47,3 +47,4 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default RootLayout;
+

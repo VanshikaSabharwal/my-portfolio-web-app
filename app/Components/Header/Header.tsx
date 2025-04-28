@@ -15,7 +15,7 @@ const Header = () => {
       <div
         className={`${
           menuOpen ? "block" : "hidden"
-        } md:flex items-center flex-wrap w-full md:2/3 linkContainer`}
+        } md:flex items-center flex-wrap w-full md:w-2/3 linkContainer`}
       >
         <Link
           href="/"
@@ -36,10 +36,16 @@ const Header = () => {
           Projects
         </Link>
         <Link
-          href="/services"
+          href="/terminal"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Services
+          Terminal
+        </Link>
+        <Link
+          href="/skills"
+          className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
+        >
+          Skills
         </Link>
         <Link
           href="/contact"
@@ -55,7 +61,7 @@ const Header = () => {
       <div
         className={`${
           menuOpen ? "block" : "hidden"
-        } md:flex linkContainerVertical items-center flex-wrap w-full flex flex-col md:2/3 `}
+        } md:flex linkContainerVertical items-center flex-wrap w-full flex flex-col md:w-2/3 `}
       >
         <Link
           href="/"
@@ -76,10 +82,16 @@ const Header = () => {
           Projects
         </Link>
         <Link
-          href="/services"
+          href="/terminal"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Services
+          Terminal
+        </Link>
+        <Link
+          href="/skills"
+          className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
+        >
+          Skills
         </Link>
         <Link
           href="/contact"
@@ -92,7 +104,7 @@ const Header = () => {
   };
 
   return (
-    <header className="py-10 bg-black px-4 container mx-auto text-xl flex flex-wrap items-center justify-between headerContainer">
+    <header className="py-10 bg-black px-4 container text-xl flex flex-wrap items-center justify-between headerContainer">
       <div className="portfolioTitle py-2.5 px-3">PortFolio</div>
       <div className="flex flex-row items-center md:hidden">
         <button onClick={toggleMenu} className="text-3xl text-white">

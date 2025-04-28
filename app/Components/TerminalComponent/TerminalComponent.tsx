@@ -55,7 +55,7 @@ const TerminalComponent: React.FC = () => {
         <title>{config.title}</title>
       </Head>
       <div
-        className="p-4 sm:p-6 md:p-8 terminalContainer overflow-hidden h-full border-2 rounded-lg border-light-yellow dark:border-dark-yellow bg-black dark:bg-dark-gray text-white dark:text-light-yellow"
+        className="p-4 sm:p-6 md:p-8 terminalContainer overflow-hidden h-full border-2 rounded-lg border-light-yellow dark:border-dark-yellow bg-[#2D2D2D] text-white dark:text-light-yellow"
         ref={containerRef}
         onClick={handleContainerClick}
       >

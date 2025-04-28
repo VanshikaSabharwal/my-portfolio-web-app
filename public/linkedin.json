@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "platform": "linkedin",
+    "image": "/images/linkedin-post1.png",
+    "link": "https://www.linkedin.com/posts/--vanshika--_worklifebalance-productivity-mentalhealth-activity-7317583135720779780-b0HL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUW_w8BplCoBGO95XxVcUrQNnRWyPWQfi4"
+  },
+  {
+    "id": 2,
+    "platform": "linkedin",
+    "image": "/images/linkedin-post2.png",
+    "link": "https://www.linkedin.com/posts/--vanshika--_today-im-proud-to-share-that-i-received-activity-7317083234125721601-7yKk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUW_w8BplCoBGO95XxVcUrQNnRWyPWQfi4"
+  },
+  {
+    "id": 3,
+    "platform": "linkedin",
+    "image": "/images/linkedin-post3.png",
+    "link": "https://www.linkedin.com/posts/--vanshika--_introducing-ko-lab-your-hub-for-chatting-activity-7264199553501839362-1JWL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUW_w8BplCoBGO95XxVcUrQNnRWyPWQfi4"
+  }
+]

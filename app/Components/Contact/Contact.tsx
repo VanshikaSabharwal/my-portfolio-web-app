@@ -40,15 +40,18 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 md:px-8 lg:px-16 bg-[#f0f4f8] text-gray-900 bg-gray-100">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <div className="min-h-screen py-12 px-4 md:px-8 lg:px-16 bg-[#D8C7B4] text-[#2D2D2D]">
+      <div className="max-w-4xl mx-auto bg-[#F4E8D4] border border-black rounded-lg shadow-lg p-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-[#f32170]">Contact Me</h1>
+          <h1 className="text-3xl font-bold text-[#2D2D2D]">Contact Me</h1>
         </div>
         <div className="space-y-6">
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex flex-col">
-              <label htmlFor="name" className="text-lg font-semibold mb-2">
+              <label
+                htmlFor="name"
+                className="text-lg font-semibold mb-2 text-[#2D2D2D]"
+              >
                 Name
               </label>
               <input
@@ -56,14 +59,17 @@ const Contact = () => {
                 name="name"
                 id="name"
                 placeholder="Your Name"
-                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f32170] transition duration-300"
+                className="p-3 border border-[#D8C7B4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4E8D4] transition duration-300"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="email" className="text-lg font-semibold mb-2">
+              <label
+                htmlFor="email"
+                className="text-lg font-semibold mb-2 text-[#2D2D2D]"
+              >
                 E-mail
               </label>
               <input
@@ -71,21 +77,24 @@ const Contact = () => {
                 name="email"
                 id="email"
                 placeholder="Your Email"
-                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f32170] transition duration-300"
+                className="p-3 border border-[#D8C7B4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4E8D4] transition duration-300"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="message" className="text-lg font-semibold mb-2">
+              <label
+                htmlFor="message"
+                className="text-lg font-semibold mb-2 text-[#2D2D2D]"
+              >
                 Message
               </label>
               <textarea
                 name="message"
                 id="message"
                 placeholder="Let's Talk"
-                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f32170] transition duration-300 h-32 resize-none"
+                className="p-3 border border-[#D8C7B4] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4E8D4] transition duration-300 h-32 resize-none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
@@ -93,7 +102,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#f32170] text-white py-3 rounded-lg hover:bg-[#cf23cf] transition duration-300"
+              className="w-full bg-[#F4E8D4] text-[#2D2D2D] py-3 rounded-lg border border-black hover:bg-[#D8C7B4] transition duration-300"
             >
               Submit
             </button>
@@ -111,7 +120,7 @@ const Contact = () => {
           </form>
           <div className="flex justify-center space-x-6 mt-6">
             <Link
-              href="https://www.linkedin.com/in/vanshikasabharwal0006/"
+              href="https://www.linkedin.com/in/--vanshika--/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#0077b5] hover:text-[#005582] transition duration-300"

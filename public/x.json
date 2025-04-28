@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "platform": "x",
+    "image": "/images/x-post1.png",
+    "link": "https://x.com/Vanshika_0006/status/1911816761365692735"
+  },
+  {
+    "id": 2,
+    "platform": "x",
+    "image": "/images/x-post2.png",
+    "link": "https://x.com/Vanshika_0006/status/1904599717667102787"
+  },
+  {
+    "id": 3,
+    "platform": "x",
+    "image": "/images/x-post3.png",
+    "link": "https://x.com/Vanshika_0006/status/1888932122770960397"
+  }
+]

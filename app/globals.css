@@ -7,7 +7,7 @@
   text-decoration: none;
 }
 .portfolioTitle {
-  background: linear-gradient(to right, #f32170, #cf23cf, #e0b0ff);
+  background: wheat;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 2rem;
@@ -196,11 +196,11 @@ textarea {
   font-family: "Hack", monospace;
 }
 .terminal-input {
-  background-color: #000000;
+  background-color: #2d2d2d;
 }
 
 .terminalContainer {
-  background: black;
+  background: #2d2d2d;
   color: wheat;
   width: 95%;
   height: 450px;
@@ -227,7 +227,7 @@ div#__next > div {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ebdbb2;
+  background: #d8c7b4;
   border-radius: 5px;
 }
 
@@ -256,3 +256,4 @@ div#__next > div {
     flex-direction: column;
   }
 }
+
