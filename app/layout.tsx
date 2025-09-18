@@ -2,7 +2,12 @@ import React from "react";
 import Head from "next/head";
 import { Merienda } from "next/font/google";
 import "./globals.css";
-import Header from "./Components/Header/Header"; // Ensure the path is correct
+import Intro from "./Components/Intro/Intro"
+import EnhancedTerminal from "./Components/EnhancedTerminal"
+import EnhancedAbout from "./Components/EnhancedAbout"
+import EnhancedProjects from "./Components/EnhancedProjects"
+import EnhancedContact from "./Components/EnhancedContact"
+
 
 const inter = Merienda({
   subsets: ["latin"],
@@ -38,7 +43,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </Head>
       <body className={inter.className} style={{ backgroundColor: "#D8C7B4" }}>
         {/* <ThemeProvider> */}
-        <Header />
+        {/* <Intro />
+        <EnhancedTerminal />
+        <EnhancedAbout />
+        <EnhancedProjects />
+        <EnhancedContact /> */}
+        {/* <Header /> */}
+
         {children}
         {/* </ThemeProvider> */}
       </body>

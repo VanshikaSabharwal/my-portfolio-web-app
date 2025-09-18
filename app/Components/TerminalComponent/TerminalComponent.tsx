@@ -1,53 +1,47 @@
-"use client";
-import React from "react";
-import Head from "next/head";
-import config from "../../../config.json";
-import { Terminal } from "../Terminal/Terminal";
-import useHistory from "../Terminal/History/historyHook";
-import { History } from "../Terminal/History/History";
-import { banner } from "../../../utilis/justBin";
+"use client"
+import React from "react"
+import Head from "next/head"
+import config from "../../../config.json"
+import { Terminal } from "../Terminal/Terminal"
+import useHistory from "../Terminal/History/historyHook"
+import { History } from "../Terminal/History/History"
+import { banner } from "../../../utilis/justBin"
 
 const TerminalComponent: React.FC = () => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null)
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
-  const {
-    history,
-    command,
-    lastCommandIndex,
-    setCommand,
-    setHistory,
-    clearHistory,
-    setLastCommandIndex,
-  } = useHistory([]);
+  const { history, command, lastCommandIndex, setCommand, setHistory, clearHistory, setLastCommandIndex } = useHistory(
+    [],
+  )
 
-  const [isBannerSet, setIsBannerSet] = React.useState(false);
+  const [isBannerSet, setIsBannerSet] = React.useState(false)
 
   React.useEffect(() => {
     const init = async () => {
-      const bannerText = await banner([]);
-      setHistory(bannerText);
-      setIsBannerSet(true);
-    };
+      const bannerText = await banner([])
+      setHistory(bannerText)
+      setIsBannerSet(true)
+    }
 
     if (!isBannerSet) {
-      init();
+      init()
     }
-  }, [isBannerSet, setHistory]);
+  }, [isBannerSet, setHistory])
 
   React.useEffect(() => {
     if (inputRef.current) {
-      inputRef.current.scrollIntoView();
-      inputRef.current.focus({ preventScroll: true });
+      inputRef.current.scrollIntoView()
+      inputRef.current.focus({ preventScroll: true })
     }
-  }, [history]);
+  }, [history])
 
   // Handle click on the container to focus the input field
   const handleContainerClick = () => {
     if (inputRef.current) {
-      inputRef.current.focus();
+      inputRef.current.focus()
     }
-  };
+  }
 
   return (
     <>
@@ -75,7 +69,7 @@ const TerminalComponent: React.FC = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default TerminalComponent;
+export default TerminalComponent
