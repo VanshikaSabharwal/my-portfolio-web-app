@@ -97,7 +97,7 @@ export default function Portfolio() {
       <footer className="border-t border-border bg-muted/30 py-6 sm:py-8">
         <div className="max-w-6xl mx-auto px-4 text-center text-sm sm:text-base">
           <p className="text-muted-foreground">
-            © 2024 Vanshika Sabharwal. Built with Next.js and Tailwind CSS.
+            © {new Date().getFullYear()} Vanshika Sabharwal
           </p>
         </div>
       </footer>

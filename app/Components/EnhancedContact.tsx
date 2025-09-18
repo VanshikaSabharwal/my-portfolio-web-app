@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
-import { FaLinkedin, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa"
+import { FaLinkedin, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaEnvelope } from "react-icons/fa"
 import { RiTwitterXFill } from "react-icons/ri"
 
 const EnhancedContact = () => {
@@ -63,8 +63,8 @@ const EnhancedContact = () => {
         </p>
       </div>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 w-full max-w-full overflow-x-hidden">
+      {/* Grid Layout - 2 equal halves */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 w-full max-w-full overflow-x-hidden">
         {/* Contact Form */}
         <Card
           className={`bg-card border-2 border-dashed border-accent shadow-lg p-6 sm:p-8 transition-all duration-700 ${
@@ -154,94 +154,62 @@ const EnhancedContact = () => {
         </Card>
 
         {/* Contact Info */}
-        <div
-          className={`flex flex-col gap-6 transition-all duration-700 ${
+        <Card
+          className={`bg-card border-2 border-dashed border-accent shadow-lg p-6 sm:p-8 transition-all duration-700 ${
             isVisible ? "animate-slide-in-right animate-delay-200" : "opacity-0"
-          } w-full`}
+          } w-full break-words`}
         >
-<Card className="bg-card border-2 border-dashed border-accent shadow-lg p-6 sm:p-8 w-full lg:w-[95%] xl:w-[90%] max-w-3xl mx-auto break-words">
-  <h3 className="text-xl sm:text-2xl font-bold text-card-foreground mb-6">Let&apos;s Connect</h3>
-  <div className="space-y-4">
-    {/* Email */}
-    <div className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-accent/10 transition-colors duration-300">
-      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/20 rounded-full flex items-center justify-center">
-        <span className="text-accent font-bold">@</span>
-      </div>
-      <div>
-        <p className="font-semibold text-card-foreground">Email</p>
-        <Link
-          href="mailto:vanshikasabharwal03@gmail.com"
-          className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm sm:text-base"
-        >
-          vanshikasabharwal03@gmail.com
-        </Link>
-      </div>
-    </div>
-
-    {/* LinkedIn */}
-    <div className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-accent/10 transition-colors duration-300">
-      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
-        <FaLinkedin className="text-blue-600 text-lg sm:text-xl" />
-      </div>
-      <div>
-        <p className="font-semibold text-card-foreground">LinkedIn</p>
-        <Link
-          href="https://www.linkedin.com/in/--vanshika--/"
-          className="text-muted-foreground hover:text-blue-600 transition-colors duration-300 text-sm sm:text-base"
-        >
-          Connect with me
-        </Link>
-      </div>
-    </div>
-
-    {/* Twitter */}
-    <div className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-accent/10 transition-colors duration-300">
-      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
-        <RiTwitterXFill className="text-blue-400 text-lg sm:text-xl" />
-      </div>
-      <div>
-        <p className="font-semibold text-card-foreground">Twitter</p>
-        <Link
-          href="https://x.com/Vanshika_0006"
-          className="text-muted-foreground hover:text-blue-400 transition-colors duration-300 text-sm sm:text-base"
-        >
-          Follow me
-        </Link>
-      </div>
-    </div>
-  </div>
-</Card>
-
-
-          <Card className="bg-card border-2 border-dashed border-accent shadow-lg p-6 sm:p-8 w-full break-words">
-            <h3 className="text-lg sm:text-xl font-bold text-card-foreground mb-4">Quick Response</h3>
-            <p className="text-muted-foreground mb-4 text-sm sm:text-base">
-              I typically respond to messages within 24 hours. For urgent inquiries, feel free to reach out via LinkedIn.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="https://www.linkedin.com/in/--vanshika--/">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="hover:scale-105 transition-transform duration-200 bg-transparent"
+          <h3 className="text-xl sm:text-2xl font-bold text-card-foreground mb-6">Let&apos;s Connect</h3>
+          <div className="space-y-4">
+            {/* Email */}
+            <div className="flex items-center gap-2 p-2 bg-muted rounded-lg">
+              <div className="hidden sm:flex w-12 h-12 bg-accent/20 rounded-full items-center justify-center">
+                 <FaEnvelope className="text-black text-lg sm:text-xl" />
+              </div>
+              <div>
+                <p className="font-semibold text-card-foreground">Email</p>
+                <Link
+                  href="mailto:vanshikasabharwalwork@gmail.com"
+                  className="text-muted-foreground transition-colors duration-300 text-sm sm:text-base"
                 >
-                  <FaLinkedin className="mr-2" />
-                  LinkedIn
-                </Button>
-              </Link>
-              <Link href="https://x.com/Vanshika_0006">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="hover:scale-105 transition-transform duration-200 bg-transparent"
-                >
-                  <RiTwitterXFill className="mr-2" />
-                  Twitter
-                </Button>
-              </Link>
+                  vanshikasabharwalwork@gmail.com
+                </Link>
+              </div>
             </div>
-          </Card>
-        </div>
+
+            {/* LinkedIn */}
+            <div className="flex items-center gap-4 p-4 bg-muted rounded-lg">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <FaLinkedin className="text-blue-600 text-lg sm:text-xl" />
+              </div>
+              <div>
+                <p className="font-semibold text-card-foreground">LinkedIn</p>
+                <Link
+                  href="https://www.linkedin.com/in/--vanshika--/"
+                  className="text-muted-foreground transition-colors duration-300 text-sm sm:text-base"
+                >
+                  Connect with me
+                </Link>
+              </div>
+            </div>
+
+            {/* Twitter */}
+            <div className="flex items-center gap-4 p-4 bg-muted rounded-lg">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <RiTwitterXFill className="text-blue-400 text-lg sm:text-xl" />
+              </div>
+              <div>
+                <p className="font-semibold text-card-foreground">Twitter</p>
+                <Link
+                  href="https://x.com/Vanshika_0006"
+                  className="text-muted-foreground transition-colors duration-300 text-sm sm:text-base"
+                >
+                  Follow me
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
   )

@@ -96,7 +96,7 @@ const EnhancedProjects = () => {
         {projectData.map((project, index) => (
           <Card
             key={index}
-            className={`bg-card border-2 border-dashed border-accent shadow-lg overflow-hidden group transition-all duration-500 ${
+            className={`bg-card border-2 border-dashed border-accent shadow-lg overflow-hidden transition-all duration-500 ${
               isVisible ? "animate-slide-in-up" : "opacity-0"
             }`}
             style={{ animationDelay: `${index * 0.1}s` }}
