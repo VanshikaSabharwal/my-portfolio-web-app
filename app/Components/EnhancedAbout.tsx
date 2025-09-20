@@ -96,7 +96,7 @@ const EnhancedAbout = () => {
 
             {/* Social Links */}
             <div className="flex flex-wrap gap-2 sm:gap-4">
-              <Link href="mailto:vanshikasabharwal03@gmail.com">
+              <Link href="mailto:vanshikasabharwalwork@gmail.com" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline"
                   size="sm"
@@ -105,7 +105,7 @@ const EnhancedAbout = () => {
                   Email Me
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/--vanshika--/">
+              <Link href="https://www.linkedin.com/in/--vanshika--/" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -114,7 +114,7 @@ const EnhancedAbout = () => {
                   <FaLinkedin className="text-xl" />
                 </Button>
               </Link>
-              <Link href="https://x.com/Vanshika_0006">
+              <Link href="https://x.com/Vanshika_0006" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -123,7 +123,7 @@ const EnhancedAbout = () => {
                   <RiTwitterXFill className="text-xl" />
                 </Button>
               </Link>
-              <Link href="https://github.com/VanshikaSabharwal">
+              <Link href="https://github.com/VanshikaSabharwal" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   size="sm"

@@ -125,13 +125,13 @@ const EnhancedProjects = () => {
 
               {/* Buttons */}
               <div className="flex flex-wrap gap-3">
-                <Link href={project.liveUrl}>
+                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <Button size="sm" className="flex items-center gap-2 hover:scale-105 transition-transform duration-200">
                     <TiArrowRightThick />
                     Live Demo
                   </Button>
                 </Link>
-                <Link href={project.githubUrl}>
+                <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="sm" className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform duration-200">
                     <IoLogoGithub />
                     Code

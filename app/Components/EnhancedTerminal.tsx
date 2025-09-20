@@ -15,7 +15,7 @@ const EnhancedTerminal: React.FC = () => {
     about: "Software developer passionate about creating innovative applications",
     skills: "React • Next.js • TypeScript • Node.js • Python • MongoDB",
     projects: "Check out my portfolio of web applications and tools",
-    contact: "Email: vanshikasabharwal03@gmail.com",
+    contact: "Email: vanshikasabharwalwork@gmail.com",
     clear: "CLEAR_TERMINAL",
   }
 
@@ -72,9 +72,9 @@ const EnhancedTerminal: React.FC = () => {
 
   return (
     <div className="w-full animate-fade-in-up">
-      <Card className="bg-card border-4 border-accent rounded-xl shadow-xl overflow-hidden">
+      <Card className="bg-card border-4 border-black rounded-xl shadow-xl overflow-hidden">
         {/* Top bar */}
-        <div className="bg-accent/20 px-2 sm:px-4 py-1 sm:py-2 border-b border-accent/30">
+        <div className="bg-black/20 px-2 sm:px-4 py-1 sm:py-2 border-b border-black/30">
           <div className="flex items-center space-x-2">
             <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500 animate-pulse-subtle"></div>
             <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500 animate-pulse-subtle animate-delay-100"></div>
@@ -95,7 +95,7 @@ const EnhancedTerminal: React.FC = () => {
             <div
               key={index}
               className={`mb-1 ${
-                line.startsWith("$") ? "text-accent font-semibold" : "text-card-foreground/80"
+                line.startsWith("$") ? "text-black font-semibold" : "text-card-foreground/80"
               } animate-slide-in-left`}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
@@ -105,7 +105,7 @@ const EnhancedTerminal: React.FC = () => {
 
           {/* Input line */}
           <div className="flex items-center flex-wrap">
-            <span className="text-accent font-semibold mr-2">$</span>
+            <span className="text-black font-semibold mr-2">$</span>
             <input
               ref={inputRef}
               type="text"
@@ -116,7 +116,7 @@ const EnhancedTerminal: React.FC = () => {
               placeholder={isTyping ? "" : "Type a command..."}
               disabled={isTyping}
             />
-            <span className="animate-pulse text-accent hidden sm:inline">|</span>
+            <span className="animate-pulse text-black hidden sm:inline">|</span>
           </div>
         </div>
       </Card>

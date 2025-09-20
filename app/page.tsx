@@ -8,6 +8,7 @@ import EnhancedTerminal from "./Components/EnhancedTerminal"
 import EnhancedAbout from "./Components/EnhancedAbout"
 import EnhancedProjects from "./Components/EnhancedProjects"
 import EnhancedContact from "./Components/EnhancedContact"
+import Link from "next/link"
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -32,7 +33,7 @@ export default function Portfolio() {
           {/* Desktop nav */}
           <div className="hidden sm:flex gap-2">
             {sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`}>
+              <Link key={section.id} href={`#${section.id}`}>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -40,7 +41,7 @@ export default function Portfolio() {
                 >
                   {section.label}
                 </Button>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -62,7 +63,7 @@ export default function Portfolio() {
         >
           <div className="px-4 pb-4 flex flex-col gap-3 bg-background/95 border-t border-border rounded-b-2xl shadow-md">
             {sections.map((section) => (
-              <a
+              <Link
                 key={section.id}
                 href={`#${section.id}`}
                 onClick={() => setMenuOpen(false)} // close after click
@@ -74,7 +75,7 @@ export default function Portfolio() {
                 >
                   {section.label}
                 </Button>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
