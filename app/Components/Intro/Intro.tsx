@@ -33,7 +33,7 @@ const Intro = () => {
             Hire Me
           </Link>
 <Link
-  href="/resume.pdf"
+  href="/Resume.pdf"
   download
   className="px-8 py-3 bg-[#2D2D2D] text-white rounded-md hover:bg-gray-900 transition duration-300"
   target="_blank" rel="noopener noreferrer"
