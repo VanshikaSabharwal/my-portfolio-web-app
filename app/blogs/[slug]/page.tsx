@@ -79,15 +79,6 @@ export default async function BlogDetail({ params }: Props) {
           </ReactMarkdown>
         </div>
       </div>
-
-      {/* Footer */}
-      <div className="border-t border-gray-200 mt-12">
-        <div className="max-w-3xl mx-auto px-6 py-8">
-          <Link href="/blogs" className="text-gray-600 hover:text-gray-900 transition-colors">
-            ← Back to stories
-          </Link>
-        </div>
-      </div>
     </div>
   )
 }

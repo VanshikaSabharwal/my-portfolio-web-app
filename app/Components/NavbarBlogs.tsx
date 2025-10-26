@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
 <h1 className="text-lg sm:text-2xl font-bold text-foreground whitespace-nowrap">
   <Link href="/" className="hover:underline">
-   Tech Diaries by  Vanshika Sabharwal 
+   Tech Diaries by  Vanshika 
   </Link>
 </h1>
 

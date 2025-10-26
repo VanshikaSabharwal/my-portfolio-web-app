@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
-import Navbar from "../Components/Navbar"
+import Navbar from "../Components/NavbarBlogs"
 
 interface Blog {
   title: string
