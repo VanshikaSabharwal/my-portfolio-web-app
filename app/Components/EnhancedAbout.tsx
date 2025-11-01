@@ -88,14 +88,24 @@ const EnhancedAbout = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-card-foreground">
               About Me
             </h1>
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
-              I am a software developer with a passion for creating innovative and user-friendly applications. I have a
-              strong background in computer science and a keen eye for detail. I am always looking for new challenges
-              and opportunities to learn and grow as a developer.
-            </p>
+<p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
+  I’m a software developer who loves turning ideas into functional, user-friendly products. Over the past year, I’ve built and contributed to multiple real-world projects like Ko-Lab — a collaborative coding platform with chat and GitHub integration — and V-Wallet, a personal finance manager.
+</p>
+
+<p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
+  My main stack includes Next.js, React, TypeScript, Node.js, Express, Docker, and Tailwind CSS, but I’m always open to exploring new tools that make development faster and cleaner. I enjoy building both frontend experiences that feel intuitive and backend systems that run efficiently.
+</p>
+
+<p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
+  Beyond coding, I’m actively involved in open-source, especially with the Palisadoes Foundation, where I’ve helped develop key features for the Developers platform. These experiences have strengthened not just my technical skills, but also my understanding of collaboration, version control, and real-world problem solving.
+</p>
+
+<p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80">
+  I believe good software isn’t just about writing code — it’s about creating impact, simplifying experiences, and constantly learning. I’m driven by curiosity and improvement, and I’m always looking for opportunities that challenge me to grow as a developer and as a person.
+</p>
 
             {/* Social Links */}
-            <div className="flex flex-wrap gap-2 sm:gap-4">
+            <div className="flex flex-wrap gap-2 sm:gap-4 mt-4">
               <Link href="mailto:vanshikasabharwalwork@gmail.com" target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline"
