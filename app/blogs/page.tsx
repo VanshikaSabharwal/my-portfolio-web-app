@@ -18,7 +18,9 @@ async function getBlogs(): Promise<Blog[]> {
 }
 
 export default async function BlogPage() {
-  const blogs = await getBlogs()
+  let blogs = await getBlogs()
+
+    blogs = blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
   return (
     <div className="min-h-screen bg-white">
@@ -27,7 +29,7 @@ export default async function BlogPage() {
       {/* Header */}
       <div className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 py-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-2">Stories</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Stories</h1>
           <p className="text-lg text-gray-600">Insights, ideas, and experiences</p>
         </div>
       </div>
@@ -45,7 +47,7 @@ export default async function BlogPage() {
               return (
                 <Link key={index} href={`/blogs/${slug}`}>
                   <article className="group cursor-pointer pb-12 border-b border-gray-200 last:border-b-0 hover:opacity-70 transition-opacity">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors">
+                    <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-3 group-hover:text-gray-700 transition-colors">
                       {blog.title}
                     </h2>
                     <p className="text-lg text-gray-600 mb-4 line-clamp-2">{blog.description}</p>

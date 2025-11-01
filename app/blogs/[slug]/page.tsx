@@ -3,12 +3,14 @@ import path from "path"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 interface Blog {
   title: string
   description: string
   author: string
   date: string
+  points?: string[] 
 }
 
 interface Props {
@@ -25,7 +27,9 @@ async function getBlogs(): Promise<Blog[]> {
 export default async function BlogDetail({ params }: Props) {
   const blogs = await getBlogs()
   const slug = params.slug
-  const blog = blogs.find((b) => b.title.trim().replace(/\s+/g, "-").toLowerCase() === slug)
+  const blog = blogs.find(
+    (b) => b.title.trim().replace(/\s+/g, "-").toLowerCase() === slug
+  )
 
   if (!blog) return notFound()
 
@@ -34,7 +38,10 @@ export default async function BlogDetail({ params }: Props) {
       {/* Back Button */}
       <div className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 py-6">
-          <Link href="/blogs" className="text-gray-600 hover:text-gray-900 transition-colors">
+          <Link
+            href="/blogs"
+            className="text-gray-600 hover:text-gray-900 transition-colors"
+          >
             ← Back to stories
           </Link>
         </div>
@@ -43,7 +50,10 @@ export default async function BlogDetail({ params }: Props) {
       {/* Article Header */}
       <div className="border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-6 py-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">{blog.title}</h1>
+<h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+  {blog.title}
+</h1>
+
           <div className="flex items-center gap-4 text-gray-600">
             <span className="font-medium text-gray-900">{blog.author}</span>
             <span>•</span>
@@ -56,27 +66,92 @@ export default async function BlogDetail({ params }: Props) {
       <div className="max-w-3xl mx-auto px-6 py-12">
         <div className="prose prose-lg max-w-none text-gray-700">
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
-              h1: ({ node, ...props }) => <h1 className="text-4xl font-bold mt-8 mb-4 text-gray-900" {...props} />,
-              h2: ({ node, ...props }) => <h2 className="text-3xl font-bold mt-8 mb-4 text-gray-900" {...props} />,
-              h3: ({ node, ...props }) => <h3 className="text-2xl font-bold mt-6 mb-3 text-gray-900" {...props} />,
-              p: ({ node, ...props }) => <p className="mb-4 leading-relaxed" {...props} />,
-              ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
-              ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
+              h1: ({ node, ...props }) => (
+                <h1
+                  className="text-4xl font-bold mt-8 mb-4 text-gray-900"
+                  {...props}
+                />
+              ),
+              h2: ({ node, ...props }) => (
+                <h2
+                  className="text-3xl font-bold mt-8 mb-4 text-gray-900"
+                  {...props}
+                />
+              ),
+              h3: ({ node, ...props }) => (
+                <h3
+                  className="text-2xl font-bold mt-6 mb-3 text-gray-900"
+                  {...props}
+                />
+              ),
+              p: ({ node, ...props }) => (
+                <p className="mb-4 leading-relaxed" {...props} />
+              ),
+              ul: ({ node, ...props }) => (
+                <ul
+                  className="list-disc list-inside mb-4 space-y-2"
+                  {...props}
+                />
+              ),
+              ol: ({ node, ...props }) => (
+                <ol
+                  className="list-decimal list-inside mb-4 space-y-2"
+                  {...props}
+                />
+              ),
               li: ({ node, ...props }) => <li className="mb-2" {...props} />,
               blockquote: ({ node, ...props }) => (
-                <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600" {...props} />
+                <blockquote
+                  className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600"
+                  {...props}
+                />
               ),
               code: ({ node, ...props }) => (
-                <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono" {...props} />
+                <code
+                  className="bg-gray-100 px-2 py-1 rounded text-sm font-mono"
+                  {...props}
+                />
               ),
               pre: ({ node, ...props }) => (
-                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4" {...props} />
+                <pre
+                  className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4"
+                  {...props}
+                />
+              ),
+              a: ({ node, href, children, ...props }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                  {...props}
+                >
+                  {children}
+                </a>
               ),
             }}
           >
             {blog.description}
           </ReactMarkdown>
+
+{/*  Points Section */}
+{blog.points && blog.points.length > 0 && (
+  <div className="mt-10 border-t border-gray-200 pt-8">
+    <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+      Key Points
+    </h2>
+    <ul className="list-disc list-inside space-y-4 text-gray-700">
+      {blog.points.map((point, i) => (
+        <li key={i} className="leading-relaxed">
+          {point}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
         </div>
       </div>
     </div>
