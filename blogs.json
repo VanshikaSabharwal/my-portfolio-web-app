@@ -30,5 +30,14 @@
     "points": [],
     "author": "Vanshika Sabharwal",
     "date": "2025-11-01"
+  },
+  {
+    "title": "Discord Bot API",
+    "description": "I got to know about this assignment from a Discord server. \n\nI never worked on the Discord API before and found this quite fascinating.\n\n1. I started working on this by first checking what the Discord API is and found that it's very interesting.\n2. I created a Typescript-based project and added all the environment variables.\n3. Created a Discord Bot and got the keys.\n4. Wrote a program to ensure the Discord Bot is connected to my server. \n5. I started with a brute approach to by using a database to store the messages and perform search on it provided the word and it's limit.\n6. Then I wrote logic to use slash command in the chat of the server.\n7. Now using the Discord API Link, any admin can use the API in their discord server.\n\nProblems faced:-\n- Could not understand the flow and how to connect the Discord API.\n- Optimizing the logic to get all the messages fetched from Discord API and store them in best way possible in database.\n- Discord API can only look up to 100 messages (latest), acting as a drawback thus further optimization is needed.\n\nFuture Plans:-\n- Optimize the database to store messages efficiently.\n- Ensure the Discord Bot has all the permissions and is accessible to large number of people with least complexity.\n- Create an application to help people use these Discord Bots for there Discord server.\n\nYou can check out the GitHub repo here: https://github.com/VanshikaSabharwal/Discord-Bot",
+    "points": [
+      "Will create an web application to have different types of discord bots for people to access for their discord server."
+    ],
+    "author": "Vanshika Sabharwal",
+    "date": "2026-02-19"
   }
 ]
