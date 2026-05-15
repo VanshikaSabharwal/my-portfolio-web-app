@@ -13,37 +13,51 @@ const projectData = [
   {
     name: "Ko-lab",
     description: "A website to meet the desire of working on projects together as a team in real time.",
-    imageUrls: ["/images/colab-1.png", "/images/colab-2.png", "/images/colab-3.png"],
+    imageUrls: ["/images/ko-lab-1.png", "/images/ko-lab-2.png", "/images/ko-lab-3.png"],
     liveUrl: "https://ko-lab.vercel.app/",
-    githubUrl: "https://github.com/VanshikaSabharwal/co-lab",
+    githubUrl: "https://github.com/VanshikaSabharwal/ko-lab",
   },
   {
     name: "V-Wallet-Web-App",
     description: "V Wallet is a web app inspired by Paytm, offering secure and seamless peer-to-peer payments and fund management.",
-    imageUrls: ["/images/v_wallet-1.png", "/images/v_wallet-2.png", "/images/v_wallet-3.png", "/images/v_wallet-4.png"],
+    imageUrls: ["/images/v-wallet-1.png", "/images/v-wallet-2.png", "/images/v-wallet-3.png", "/images/v-wallet-4.png"],
     liveUrl: "https://v-wallet-user-app.vercel.app/",
     githubUrl: "https://github.com/VanshikaSabharwal/v-wallet",
   },
+  // {
+  //   name: "Bakery Website",
+  //   description: "A website to meet the desire of exploring cakes and other bakery items from anywhere, anytime.",
+  //   imageUrls: ["/images/bakery-1.png", "/images/bakery-2.png", "/images/bakery-3.png"],
+  //   liveUrl: "https://vanshikasabharwal.github.io/bakeryWebsite-V1/",
+  //   githubUrl: "https://github.com/VanshikaSabharwal/bakeryWebsite-V1",
+  // },
+  // {
+  //   name: "Nintendo-Clone-Web-App",
+  //   description: "Nintendo Clone Web App is a web app inspired by the official Nintendo app, providing features for managing and exploring Nintendo games.",
+  //   imageUrls: ["/images/nintendo-1.png", "/images/nintendo-2.png", "/images/nintendo-3.png"],
+  //   liveUrl: "https://github.com/VanshikaSabharwal/Nintendo-clone",
+  //   githubUrl: "https://github.com/VanshikaSabharwal/Nintendo-clone",
+  // },
+  // {
+  //   name: "Hotel-Management",
+  //   description: "A website to meet the desire of exploring cakes and other bakery items from anywhere, anytime.",
+  //   imageUrls: ["/images/hotel-1.png"],
+  //   liveUrl: "https://github.com/VanshikaSabharwal/hotel-management-webApp",
+  //   githubUrl: "https://github.com/VanshikaSabharwal/hotel-management-webApp",
+  // },
   {
-    name: "Bakery Website",
-    description: "A website to meet the desire of exploring cakes and other bakery items from anywhere, anytime.",
-    imageUrls: ["/images/bakery-1.png", "/images/bakery-2.png", "/images/bakery-3.png"],
-    liveUrl: "https://vanshikasabharwal.github.io/bakeryWebsite-V1/",
-    githubUrl: "https://github.com/VanshikaSabharwal/bakeryWebsite-V1",
+    name: "Next Flow",
+    description: "Next Flow is a visual, no-code workflow editor where you drag and drop nodes — text, images, video, AI models — and connect them into powerful automated pipelines.",
+    imageUrls: ["/images/next-flow-1.png","/images/next-flow-2.png","/images/next-flow-3.png","/images/next-flow-4.png", "/images/next-flow-5.png","/images/next-flow-6.png"],
+    liveUrl: "https://next-flow-pi.vercel.app",
+    githubUrl: "https://github.com/VanshikaSabharwal/NextFlow",
   },
   {
-    name: "Nintendo-Clone-Web-App",
-    description: "Nintendo Clone Web App is a web app inspired by the official Nintendo app, providing features for managing and exploring Nintendo games.",
-    imageUrls: ["/images/nintendo-1.png", "/images/nintendo-2.png", "/images/nintendo-3.png"],
-    liveUrl: "https://github.com/VanshikaSabharwal/Nintendo-clone",
-    githubUrl: "https://github.com/VanshikaSabharwal/Nintendo-clone",
-  },
-  {
-    name: "Hotel-Management",
-    description: "A website to meet the desire of exploring cakes and other bakery items from anywhere, anytime.",
-    imageUrls: ["/images/hotel-1.png"],
-    liveUrl: "https://github.com/VanshikaSabharwal/hotel-management-webApp",
-    githubUrl: "https://github.com/VanshikaSabharwal/hotel-management-webApp",
+    name: "Legal Docs",
+    description: "Legal Docs is a legal document tool with pre-built templates you can edit with your voice — just speak your changes, and the document updates itself.",
+    imageUrls: ["/images/legal-docs-1.png", "/images/legal-docs-2.png", "/images/legal-docs-3.png", "/images/legal-docs-4.png"],
+    liveUrl: "https://legal-docs-website.vercel.app",
+    githubUrl: "https://github.com/VanshikaSabharwal/legal-docs",
   },
 ]
 
@@ -127,7 +141,7 @@ const EnhancedProjects = () => {
               <div className="flex flex-wrap gap-3">
                 <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <Button size="sm" className="flex items-center gap-2 hover:scale-105 transition-transform duration-200">
-                    <TiArrowRightThick />
+                    {/* <TiArrowRightThick /> */}
                     Live Demo
                   </Button>
                 </Link>

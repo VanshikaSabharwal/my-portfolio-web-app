@@ -89,19 +89,19 @@ const EnhancedAbout = () => {
               About Me
             </h1>
 <p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
-  I’m a software developer who loves turning ideas into functional, user-friendly products. Over the past year, I’ve built and contributed to multiple real-world projects like Ko-Lab — a collaborative coding platform with chat and GitHub integration — and V-Wallet, a personal finance manager.
+I am Vanshika Sabharwal, an open-source contributor for the past 2+ years.
 </p>
 
 <p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
-  My main stack includes Next.js, React, TypeScript, Node.js, Express, Docker, and Tailwind CSS, but I’m always open to exploring new tools that make development faster and cleaner. I enjoy building both frontend experiences that feel intuitive and backend systems that run efficiently.
+I have completed two internships so far: one with the US-based organization The Palisadoes Foundation and the second with the Bengaluru-based company Desklinq.
 </p>
 
 <p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80 mb-4 sm:mb-6">
-  Beyond coding, I’m actively involved in open-source, especially with the Palisadoes Foundation, where I’ve helped develop key features for the Developers platform. These experiences have strengthened not just my technical skills, but also my understanding of collaboration, version control, and real-world problem solving.
+I have experience working with both international and national teams, which has helped me improve my management and communication skills, along with my proficiency in languages.
 </p>
 
 <p className="text-sm sm:text-base md:text-lg leading-relaxed text-card-foreground/80">
-  I believe good software isn’t just about writing code — it’s about creating impact, simplifying experiences, and constantly learning. I’m driven by curiosity and improvement, and I’m always looking for opportunities that challenge me to grow as a developer and as a person.
+I am fluent in English and Hindi, and I am currently working on my Turkish and Japanese. I have contributed to open source repositories such as MetaCall and The Palisadoes Foundation, both of which frequently appear in Google Summer of Code (GSoC).
 </p>
 
             {/* Social Links */}
@@ -145,8 +145,8 @@ const EnhancedAbout = () => {
             </div>
           </div>
 
-          <div className="flex justify-center md:justify-end animate-slide-in-right mt-6 md:mt-0">
-            <div className="relative group w-48 sm:w-56 md:w-72">
+          <div className="flex justify-center md:justify-flex-start animate-slide-in-right mt-6 md:mt-0">
+            <div className="relative group w-48 sm:w-56 md:w-72 flex justify-flex-start gap-4">
               <div className="absolute -inset-1 bg-gradient-to-r from-accent to-secondary rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <Image
                 src="/images/p1.jpeg"
@@ -155,13 +155,13 @@ const EnhancedAbout = () => {
                 height={350}
                 className="relative rounded-lg shadow-lg transition-transform duration-300 md:group-hover:scale-105 w-full h-auto"
               />
-              <Image
+              {/* <Image
                 src="/images/p2.jpeg"
                 alt="Profile"
                 width={300}
                 height={350}
                 className="relative rounded-lg shadow-lg transition-transform duration-300 md:group-hover:scale-105 w-full h-auto"
-              />
+              /> */}
               <Image
                 src="/images/p3.jpeg"
                 alt="Profile"

@@ -9,6 +9,8 @@ import EnhancedAbout from "./Components/EnhancedAbout"
 import EnhancedProjects from "./Components/EnhancedProjects"
 import EnhancedContact from "./Components/EnhancedContact"
 import BlogShowcase from "./Components/BlogsMainPageShowcase"
+import OpenSourceSection from "./Components/Opensource"
+import LinkedInRecommendationsSection from "./Components/LinkedInRecommendationsSection"
 import blogsData from "../blogs.json";
 import Link from "next/link"
 
@@ -17,10 +19,12 @@ export default function Portfolio() {
 
   const sections = [
     { id: "intro", label: "Intro", component: <Intro /> },
+    { id: "about", label: "About", component: <EnhancedAbout /> },
+    { id: "opensource", label: "Open Source", component: <OpenSourceSection /> },
+    { id: "projects", label: "Projects", component: <EnhancedProjects /> },
+    { id: "recommendations", label: "Recommendations", component: <LinkedInRecommendationsSection /> },
     { id: "blogs", label: "My Blogs", component: <BlogShowcase blogs={blogsData}/>},
     { id: "terminal", label: "Terminal", component: <EnhancedTerminal /> },
-    { id: "about", label: "About", component: <EnhancedAbout /> },
-    { id: "projects", label: "Projects", component: <EnhancedProjects /> },
     { id: "contact", label: "Contact", component: <EnhancedContact /> },
   ]
 
@@ -28,10 +32,10 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 <h1 className="text-lg sm:text-2xl font-bold text-foreground whitespace-nowrap">
   <Link href="/" className="hover:underline">
-    Vanshika Sabharwal
+    <img src="/images/vs-logo.jpeg" alt="vs-logo" className="rounded-[50%] w-[50px] h-[50px]" />
   </Link>
 </h1>
 
@@ -92,9 +96,9 @@ export default function Portfolio() {
           <section
             key={section.id}
             id={section.id}
-            className="snap-start min-h-[80vh] md:min-h-screen flex flex-col md:flex-row items-center justify-center px-4 py-8 sm:py-12"
+            className="bg-[#fff7f0] snap-start min-h-[80vh] md:min-h-screen flex items-center justify-center px-4 py-8 sm:py-12"
           >
-            <div className="w-full max-w-5xl">{section.component}</div>
+            <div className="w-full">{section.component}</div>
           </section>
         ))}
       </main>

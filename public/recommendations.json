@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rec-1",
+    "name": "Abhishek Singh Chouhan",
+    "role": "Manager at Accenture Strategy",
+    "text": "I've had the opportunity to work closely with Vanshika, and what stands out most is her sincerity, ownership, and professionalism. She consistently delivers high-quality work on time, understands requirements quickly, and incorporates feedback exceptionally well. What is especially impressive is the level of maturity and communication skills she brings at such an early stage in her career — easily comparable to someone with several years of professional experience. She has a great attitude, is dependable, and always willing to go the extra mile.",
+    "linkedinUrl": "https://www.linkedin.com/in/abhishek-singh-chouhan/"
+  },
+  {
+    "id": "rec-2",
+    "name": "Vicente Ferrer",
+    "role": "Founder at MetaCall.io",
+    "text": "I have been working six months now with Vanshika and since she joined MetaCall community she has been an active contributor to open source and our organization. We have worked together with complex technologies, including FaaS, TypeScript and Deployments. Even with those complex scenarios, she had the ability to investigate, debug and detect problems, that later on she has solved. She has always been open to learn and improve over time. I would like to keep working with her and I would recommend her to work in any company. I hope the best for you Vanshika.",
+    "linkedinUrl": "https://www.linkedin.com/in/vicenteferrer/"
+  },
+  {
+    "id": "rec-3",
+    "name": "Aditya Belwal",
+    "role": "Digitizing the CRE Value Chain - Desklinq",
+    "text": "I had the pleasure of working with Vanshika during her internship at Desklinq®. She consistently demonstrated strong technical ability, ownership, and a genuine eagerness to learn. Vanshika contributed across multiple areas including building and redesigning the Broker Page, implementing OTP verification workflows, integrating Zoho CRM, and developing new features. She handled challenges with a problem-solving mindset and adapted quickly to feedback. Her dedication, attention to detail, and positive attitude make her a valuable asset to any team. I highly recommend her for future opportunities.",
+    "linkedinUrl": "https://www.linkedin.com/in/aditya-belwal/"
+  }
+]
