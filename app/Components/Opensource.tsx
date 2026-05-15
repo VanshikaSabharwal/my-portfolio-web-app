@@ -26,6 +26,7 @@ export default function OpenSourceSection() {
   const [selectedOrg, setSelectedOrg] = useState<Organization | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [visiblePrCount, setVisiblePrCount] = useState(5)
 
   useEffect(() => {
     const fetchGithubContributions = async () => {
@@ -51,6 +52,10 @@ export default function OpenSourceSection() {
   }, [])
 
   const activeOrg = selectedOrg ?? organizations[0] ?? null
+
+  useEffect(() => {
+  setVisiblePrCount(5)
+}, [selectedOrg])
 
   return (
     <section className="bg-[#F8F2EC] py-24 px-6">
@@ -180,36 +185,65 @@ export default function OpenSourceSection() {
             <GitPullRequest className="w-6 h-6 text-[#B66A2C]" />
           </div>
 
-          <div className="space-y-4">
-            {loading || !activeOrg ? (
-              <div className="rounded-2xl border border-[#F0E4DA] bg-[#FCF8F4] p-10 text-center text-[#6E6E6E]">
-                {loading
-                  ? 'Loading pull request details...'
-                  : error
-                  ? error
-                  : 'Select an organization to view pull request details.'}
-              </div>
-            ) : (
-              activeOrg.prs.map((pr) => (
-                <a
-                  key={pr.number}
-                  href={pr.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-5 rounded-2xl border border-[#F0E4DA] hover:border-[#D6B59C] hover:bg-[#FCF8F4] transition"
-                >
-                  <div>
-                    <h4 className="text-base sm:text-lg font-medium text-[#081B37]">
-                      {pr.title}
-                    </h4>
-                    <p className="text-[#B66A2C] mt-1">#{pr.number}</p>
-                  </div>
+<div className="space-y-4">
+  {loading || !activeOrg ? (
+    <div className="rounded-2xl border border-[#F0E4DA] bg-[#FCF8F4] p-10 text-center text-[#6E6E6E]">
+      {loading
+        ? 'Loading pull request details...'
+        : error
+        ? error
+        : 'Select an organization to view pull request details.'}
+    </div>
+  ) : (
+    <>
+      {activeOrg.prs
+        .slice(0, visiblePrCount)
+        .map((pr) => (
+          <a
+            key={pr.number}
+            href={pr.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between p-5 rounded-2xl border border-[#F0E4DA] hover:border-[#D6B59C] hover:bg-[#FCF8F4] transition"
+          >
+            <div>
+              <h4 className="text-base sm:text-lg font-medium text-[#081B37]">
+                {pr.title}
+              </h4>
+              <p className="text-[#B66A2C] mt-1">#{pr.number}</p>
+            </div>
 
-                  <ExternalLink className="w-4 h-4 text-[#B66A2C]" />
-                </a>
-              ))
-            )}
-          </div>
+            <ExternalLink className="w-4 h-4 text-[#B66A2C]" />
+          </a>
+        ))}
+
+      {/* Show More / Show Less */}
+      {activeOrg.prs.length > 5 && (
+        <div className="pt-4 flex justify-center">
+          {visiblePrCount < activeOrg.prs.length ? (
+            <button
+              onClick={() =>
+                setVisiblePrCount((prev) =>
+                  Math.min(prev + 5, activeOrg.prs.length)
+                )
+              }
+              className="px-6 py-3 rounded-full bg-[#F3E2D5] text-[#B66A2C] font-semibold hover:bg-[#EBD4C2] transition"
+            >
+              Show More
+            </button>
+          ) : (
+            <button
+              onClick={() => setVisiblePrCount(5)}
+              className="px-6 py-3 rounded-full bg-[#F9EEE5] text-[#B66A2C] font-semibold hover:bg-[#F3E2D5] transition"
+            >
+              Show Less
+            </button>
+          )}
+        </div>
+      )}
+    </>
+  )}
+</div>
         </div>
       </div>
     </section>

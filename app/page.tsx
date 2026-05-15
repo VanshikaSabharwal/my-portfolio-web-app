@@ -97,7 +97,7 @@ export default function Portfolio() {
           <section
             key={section.id}
             id={section.id}
-            className="bg-[#fff7f0] snap-start min-h-[80vh] md:min-h-screen flex items-center justify-center px-4 py-8 sm:py-12"
+            className="bg-[#fff7f0] snap-start md:min-h-screen flex items-center justify-center px-4 py-8 sm:py-12"
           >
             <div className="w-full">{section.component}</div>
           </section>

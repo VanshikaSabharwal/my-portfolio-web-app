@@ -146,12 +146,12 @@ I am fluent in English and Hindi, and I am currently working on my Turkish and J
           </div>
 
           <div className="flex justify-center md:justify-flex-start animate-slide-in-right mt-6 md:mt-0">
-            <div className="relative group w-48 sm:w-56 md:w-72 flex justify-flex-start gap-4">
+            <div className="relative group flex justify-center gap-4 mx-auto">
               <div className="absolute -inset-1 bg-gradient-to-r from-accent to-secondary rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <Image
                 src="/images/p1.jpeg"
                 alt="Profile"
-                width={300}
+                width={200}
                 height={350}
                 className="relative rounded-lg shadow-lg transition-transform duration-300 md:group-hover:scale-105 w-full h-auto"
               />
@@ -165,7 +165,7 @@ I am fluent in English and Hindi, and I am currently working on my Turkish and J
               <Image
                 src="/images/p3.jpeg"
                 alt="Profile"
-                width={300}
+                width={200}
                 height={350}
                 className="relative rounded-lg shadow-lg transition-transform duration-300 md:group-hover:scale-105 w-full h-auto"
               />
