@@ -71,7 +71,7 @@ const EnhancedTerminal: React.FC = () => {
   }, [history, currentLine])
 
   return (
-    <div className="w-[90vw] animate-fade-in-up">
+    <div className="w-full animate-fade-in-up">
       <Card className="bg-card border-4 border-black rounded-xl shadow-xl overflow-hidden">
         {/* Top bar */}
         <div className="bg-black/20 px-2 sm:px-4 py-1 sm:py-2 border-b border-black/30">

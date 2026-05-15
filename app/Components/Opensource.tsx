@@ -7,6 +7,7 @@ import {
   Building2,
   ExternalLink,
 } from 'lucide-react'
+import Image from "next/image"
 
 type Pr = {
   title: string
@@ -60,7 +61,7 @@ export default function OpenSourceSection() {
             Open Source
           </span>
 
-          <h2 className="mt-6 text-5xl md:text-6xl leading-tight font-serif text-[#081B37]">
+          <h2 className="mt-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-tight font-serif text-[#081B37]">
             Contributions,
             <br />
             pull requests, and
@@ -84,7 +85,7 @@ export default function OpenSourceSection() {
               <p className="text-xs uppercase tracking-[0.25em] text-[#B66A2C] font-semibold">
                 Activity Heatmap
               </p>
-              <h3 className="text-2xl font-serif text-[#081B37]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-[#081B37]">
                 GitHub Contributions
               </h3>
             </div>
@@ -102,11 +103,16 @@ export default function OpenSourceSection() {
                 fontSize={14}
               />
             */}
-            <img
-              src="https://ghchart.rshah.org/VanshikaSabharwal"
-              alt="GitHub contribution chart"
-              className="w-full rounded-2xl"
-            />
+            <div className="relative w-full" style={{ aspectRatio: '4 / 1' }}>
+              <Image
+                src="https://ghchart.rshah.org/VanshikaSabharwal"
+                alt="GitHub contribution chart"
+                fill
+                className="w-full rounded-2xl object-contain"
+                priority
+                unoptimized
+              />
+            </div>
           </div>
         </div>
 
@@ -146,7 +152,7 @@ export default function OpenSourceSection() {
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-serif text-[#081B37] leading-snug">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-[#081B37] leading-snug">
                   {org.name}
                 </h3>
 
@@ -166,7 +172,7 @@ export default function OpenSourceSection() {
                 Pull Requests
               </span>
 
-              <h3 className="text-3xl font-serif text-[#081B37]">
+              <h3 className="text-lg sm:text-2xl md:text-3xl font-serif text-[#081B37]">
                 {activeOrg?.name ?? 'Contributions'}
               </h3>
             </div>
@@ -193,7 +199,7 @@ export default function OpenSourceSection() {
                   className="flex items-center justify-between p-5 rounded-2xl border border-[#F0E4DA] hover:border-[#D6B59C] hover:bg-[#FCF8F4] transition"
                 >
                   <div>
-                    <h4 className="text-lg font-medium text-[#081B37]">
+                    <h4 className="text-base sm:text-lg font-medium text-[#081B37]">
                       {pr.title}
                     </h4>
                     <p className="text-[#B66A2C] mt-1">#{pr.number}</p>

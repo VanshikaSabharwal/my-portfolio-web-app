@@ -13,6 +13,7 @@ import OpenSourceSection from "./Components/Opensource"
 import LinkedInRecommendationsSection from "./Components/LinkedInRecommendationsSection"
 import blogsData from "../blogs.json";
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -35,7 +36,7 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 <h1 className="text-lg sm:text-2xl font-bold text-foreground whitespace-nowrap">
   <Link href="/" className="hover:underline">
-    <img src="/images/vs-logo.jpeg" alt="vs-logo" className="rounded-[50%] w-[50px] h-[50px]" />
+    <Image src="/images/vs-logo.jpeg" alt="vs-logo" width={50} height={50} className="rounded-[50%]" />
   </Link>
 </h1>
 

@@ -59,7 +59,7 @@ export default function LinkedInRecommendationsSection() {
             Recommendations
           </span>
 
-          <h2 className="mt-6 text-5xl md:text-6xl leading-tight font-serif text-[#081B37]">
+          <h2 className="mt-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-tight font-serif text-[#081B37]">
             Words from
             <span className="text-[#B66A2C] italic"> CEO & Mentors.</span>
           </h2>
@@ -87,12 +87,12 @@ export default function LinkedInRecommendationsSection() {
                 <Quote className="w-5 h-5 text-[#B66A2C]" />
               </div>
 
-              <blockquote className="text-xl leading-relaxed font-serif text-[#081B37] italic">
-                “{rec.text}”
+              <blockquote className="text-base sm:text-lg md:text-xl leading-relaxed font-serif text-[#081B37] italic">
+                &quot;{rec.text}&quot;
               </blockquote>
 
               <div className="mt-8 pt-6 border-t border-[#EFE2D7]">
-                <h3 className="text-xl font-serif text-[#081B37]">
+                <h3 className="text-lg sm:text-xl font-serif text-[#081B37]">
                   {rec.name}
                 </h3>
                 <p className="text-[#B66A2C] mt-1">{rec.role}</p>
