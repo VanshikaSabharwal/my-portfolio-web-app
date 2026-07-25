@@ -14,9 +14,9 @@ const Header = () => {
 
   // React Spring Animation for Menu
   const menuAnimation = useSpring({
-    transform: menuOpen ? "translateX(0%)" : "translateX(-100%)", // This ensures the menu comes from the left
+    transform: menuOpen ? "translateX(0%)" : "translateX(100%)", // Menu slides in from the right
     opacity: menuOpen ? 1 : 0,
-    config: { tension: 250, friction: 20 },
+    config: { tension: 280, friction: 26 },
   });
 
   const HorizontalNav = () => {
@@ -128,7 +128,7 @@ const Header = () => {
       <div className="md:hidden w-full">
         <animated.div
           style={menuAnimation}
-          className="absolute top-0 left-0 w-full h-screen bg-black z-50"
+          className="fixed inset-0 w-screen h-screen bg-black z-50 overflow-y-auto"
         >
           {/* Close button inside the menu */}
           {menuOpen && (

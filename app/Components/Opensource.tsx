@@ -26,7 +26,7 @@ export default function OpenSourceSection() {
   const [selectedOrg, setSelectedOrg] = useState<Organization | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [visiblePrCount, setVisiblePrCount] = useState(5)
+  const [visiblePrCount, setVisiblePrCount] = useState(3)
 
   useEffect(() => {
     const fetchGithubContributions = async () => {
@@ -54,7 +54,7 @@ export default function OpenSourceSection() {
   const activeOrg = selectedOrg ?? organizations[0] ?? null
 
   useEffect(() => {
-  setVisiblePrCount(5)
+  setVisiblePrCount(3)
 }, [selectedOrg])
 
   return (
@@ -218,13 +218,13 @@ export default function OpenSourceSection() {
         ))}
 
       {/* Show More / Show Less */}
-      {activeOrg.prs.length > 5 && (
+      {activeOrg.prs.length > 3 && (
         <div className="pt-4 flex justify-center">
           {visiblePrCount < activeOrg.prs.length ? (
             <button
               onClick={() =>
                 setVisiblePrCount((prev) =>
-                  Math.min(prev + 5, activeOrg.prs.length)
+                  Math.min(prev + 3, activeOrg.prs.length)
                 )
               }
               className="px-6 py-3 rounded-full bg-[#F3E2D5] text-[#B66A2C] font-semibold hover:bg-[#EBD4C2] transition"
@@ -233,7 +233,7 @@ export default function OpenSourceSection() {
             </button>
           ) : (
             <button
-              onClick={() => setVisiblePrCount(5)}
+              onClick={() => setVisiblePrCount(3)}
               className="px-6 py-3 rounded-full bg-[#F9EEE5] text-[#B66A2C] font-semibold hover:bg-[#F3E2D5] transition"
             >
               Show Less
