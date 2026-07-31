@@ -19,6 +19,7 @@ type Post = {
 const About = () => {
   const [xPosts, setXPosts] = useState<Post[]>([]);
   const [linkedinPosts, setLinkedinPosts] = useState<Post[]>([]);
+  const [bioExpanded, setBioExpanded] = useState(false);
 
   // Fetch posts data
   useEffect(() => {
@@ -41,13 +42,24 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-4xl font-bold mb-4 text-[#f5deb3]">About Me</h1>
-            <p className="text-lg leading-relaxed text-gray-300">
+            <p
+              className={`text-lg leading-relaxed text-gray-300 ${
+                bioExpanded ? "" : "line-clamp-3"
+              }`}
+            >
               I am a software developer with a passion for creating innovative
               and user-friendly applications. I have a strong background in
               computer science and a keen eye for detail. I am always looking
               for new challenges and opportunities to learn and grow as a
               developer.
             </p>
+            <button
+              type="button"
+              onClick={() => setBioExpanded((prev) => !prev)}
+              className="mt-2 text-sm font-semibold text-[#f5deb3] hover:underline transition-colors duration-300"
+            >
+              {bioExpanded ? "Read less" : "Read more"}
+            </button>
           </div>
           <div className="flex justify-center md:justify-end">
             <div className="w-full md:w-auto max-w-xs">

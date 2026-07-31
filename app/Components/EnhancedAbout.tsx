@@ -30,6 +30,7 @@ type SkillCategory = { name: string; icon: React.ReactNode; skills: Skill[] }
 const EnhancedAbout = () => {
   const [activeCategory, setActiveCategory] = useState<string>("Frontend")
   const [isVisible, setIsVisible] = useState(false)
+  const [bioExpanded, setBioExpanded] = useState(false)
 
   const skillCategories: SkillCategory[] = [
     {
@@ -107,26 +108,44 @@ const EnhancedAbout = () => {
               About <em className="font-medium italic text-[#A85B3E]">Me</em>
             </h1>
 
-            <div className="max-w-[52ch] space-y-4 text-[15px] leading-relaxed text-[#4A4038] sm:text-base">
-              <p>
-                I&apos;m <strong className="font-bold text-[#231A12]">Vanshika Sabharwal</strong>, an open-source
-                contributor for the past 2+ years.
-              </p>
-              <p>
-                I&apos;ve completed two internships so far — one with the US-based organization{" "}
-                <strong className="font-bold text-[#231A12]">The Palisadoes Foundation</strong>, and the second
-                with the Bengaluru-based company <strong className="font-bold text-[#231A12]">Desklinq</strong>.
-              </p>
-              <p>
-                I have experience working with both international and national teams, which has helped me
-                improve my management and communication skills, along with my proficiency in languages.
-              </p>
-              <p>
-                I am fluent in English and Hindi, and I&apos;m currently working on my Turkish and Japanese. I&apos;ve
-                contributed to open source repositories such as MetaCall and The Palisadoes Foundation, both
-                of which frequently appear in Google Summer of Code (GSoC).
-              </p>
+            <div className="relative max-w-[52ch]">
+              <div
+                className={`space-y-4 overflow-hidden text-[15px] leading-relaxed text-[#4A4038] transition-[max-height] duration-500 ease-in-out sm:!max-h-none sm:overflow-visible sm:text-base ${
+                  bioExpanded ? "max-h-[600px]" : "max-h-[128px]"
+                }`}
+              >
+                <p>
+                  I&apos;m <strong className="font-bold text-[#231A12]">Vanshika Sabharwal</strong>, an open-source
+                  contributor for the past 2+ years.
+                </p>
+                <p>
+                  I&apos;ve completed two internships so far — one with the US-based organization{" "}
+                  <strong className="font-bold text-[#231A12]">The Palisadoes Foundation</strong>, and the second
+                  with the Bengaluru-based company <strong className="font-bold text-[#231A12]">Desklinq</strong>.
+                </p>
+                <p>
+                  I have experience working with both international and national teams, which has helped me
+                  improve my management and communication skills, along with my proficiency in languages.
+                </p>
+                <p>
+                  I am fluent in English and Hindi, and I&apos;m currently working on my Turkish and Japanese. I&apos;ve
+                  contributed to open source repositories such as MetaCall and The Palisadoes Foundation, both
+                  of which frequently appear in Google Summer of Code (GSoC).
+                </p>
+              </div>
+
+              {!bioExpanded && (
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent sm:hidden" />
+              )}
             </div>
+
+            <button
+              type="button"
+              onClick={() => setBioExpanded((prev) => !prev)}
+              className="mt-2 text-sm font-semibold cursor-pointer text-[#A85B3E] hover:underline sm:hidden"
+            >
+              {bioExpanded ? "Read less" : "Read more"}
+            </button>
 
             {/* Stamp row */}
             <div className="my-8 flex flex-wrap gap-3.5">
@@ -139,14 +158,14 @@ const EnhancedAbout = () => {
                 <div
                   key={stamp.label}
                   // style={{ transform: `rotate(${stamp.rot}deg)` }}
-                  className={`flex h-20 w-20 flex-col items-center justify-center rounded-full border border-dashed text-center font-mono transition-all duration-300 hover:scale-110 hover:!rotate-0 hover:border-[#A85B3E] hover:bg-[#FFF7EE] hover:shadow-[0_10px_24px_-8px_rgba(168,91,62,0.35)] sm:h-24 sm:w-24 ${
+                  className={`flex h-14 w-14 flex-col items-center justify-center rounded-full border border-dashed text-center font-mono transition-all duration-300 hover:scale-110 hover:!rotate-0 hover:border-[#A85B3E] hover:bg-[#FFF7EE] hover:shadow-[0_10px_24px_-8px_rgba(168,91,62,0.35)] sm:h-20 sm:w-20 md:h-24 md:w-24 ${
                     stamp.dim ? "border-[#D9CAB1] bg-[#FBF7F0]" : "border-[#D9CAB1] bg-[#FDFBF7]"
                   }`}
                 >
-                  <span className={`text-base font-bold sm:text-lg ${stamp.dim ? "text-[#8A5A32] opacity-75" : "text-[#A85B3E]"}`}>
+                  <span className={`text-[11px] font-bold sm:text-base md:text-lg ${stamp.dim ? "text-[#8A5A32] opacity-75" : "text-[#A85B3E]"}`}>
                     {stamp.num}
                   </span>
-                  <span className="mt-1 px-2 text-[9px] uppercase tracking-[0.08em] text-[#8A7C6C]">
+                  <span className="mt-0.5 px-1.5 text-[7px] uppercase leading-tight tracking-[0.06em] text-[#8A7C6C] sm:mt-1 sm:px-2 sm:text-[9px] sm:tracking-[0.08em]">
                     {stamp.label}
                   </span>
                 </div>
@@ -263,15 +282,15 @@ const EnhancedAbout = () => {
             ?.skills.map((skill, index) => (
               <div
                 key={skill.name}
-                className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-3 sm:p-4 bg-muted rounded-lg border border-border hover:border-accent transition-all duration-300 hover:shadow-md animate-slide-in-left"
+                className="flex flex-row items-center gap-2.5 sm:gap-6 p-2 sm:p-4 bg-muted rounded-lg border border-border hover:border-accent transition-all duration-300 hover:shadow-md animate-slide-in-left"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent/20 text-accent text-xl">
+                <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-accent/20 text-accent text-base sm:text-xl shrink-0">
                   {skill.icon}
                 </div>
 
                 <div className="flex-1 w-full">
-                  <h3 className="text-sm sm:text-base md:text-lg font-semibold text-card-foreground text-black mb-1 sm:mb-2">
+                  <h3 className="text-xs sm:text-base md:text-lg font-semibold text-card-foreground text-black mb-0.5 sm:mb-2">
                     {skill.name}
                   </h3>
                   <div className="w-full bg-border rounded-full h-2 overflow-hidden">

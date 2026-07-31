@@ -1,7 +1,6 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { IoReorderThreeSharp, IoCloseSharp } from "react-icons/io5"
 
 import Intro from "./Components/Intro/Intro"
 import EnhancedTerminal from "./Components/EnhancedTerminal"
@@ -18,6 +17,13 @@ import Image from "next/image"
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false)
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen])
+
   const sections = [
     { id: "intro", label: "Intro", component: <Intro /> },
     { id: "about", label: "About", component: <EnhancedAbout /> },
@@ -32,7 +38,7 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 <h1 className="text-lg sm:text-2xl font-bold text-foreground whitespace-nowrap">
   <Link href="/" className="hover:underline">
@@ -55,41 +61,101 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Hamburger (mobile only) */}
+          {/* Hamburger (mobile only) — morphs into a close icon */}
           <button
-            className="sm:hidden text-3xl p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="sm:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-[5px] rounded-lg transition-colors duration-200 hover:bg-muted active:bg-muted/70"
           >
-            {menuOpen ? <IoCloseSharp /> : <IoReorderThreeSharp />}
+            <span
+              className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-300 ease-in-out ${
+                menuOpen ? "rotate-45 translate-y-[7px]" : ""
+              }`}
+            />
+            <span
+              className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-200 ease-in-out ${
+                menuOpen ? "w-0 opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-300 ease-in-out ${
+                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+              }`}
+            />
           </button>
         </div>
+      </nav>
 
-        {/* Mobile menu */}
-        <div
-          className={`sm:hidden overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="px-4 pb-4 flex flex-col gap-3 bg-background/95 border-t border-border rounded-b-2xl shadow-md">
-            {sections.map((section) => (
-              <Link
+      {/* Full-page mobile menu overlay */}
+      <div
+        className={`sm:hidden fixed inset-0 z-40 bg-[#fff7f0] flex flex-col transition-opacity duration-300 ease-in-out ${
+          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Offset so links start below the sticky navbar */}
+        <div className="h-[72px] shrink-0" />
+
+        <div className="flex-1 flex flex-col justify-center px-8 pb-10">
+          <ul>
+            {sections.map((section, i) => (
+              <li
                 key={section.id}
-                href={`#${section.id}`}
-                onClick={() => setMenuOpen(false)} // close after click
+                style={{
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? "translateX(0)" : "translateX(48px)",
+                  transition: "opacity 0.38s ease, transform 0.38s ease",
+                  transitionDelay: menuOpen ? `${80 + i * 60}ms` : "0ms",
+                }}
               >
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="w-full justify-start text-lg hover:translate-x-2 transition-transform"
+                <Link
+                  href={`#${section.id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between group py-3.5 border-b border-[#ecd7c9]"
                 >
-                  {section.label}
-                </Button>
-              </Link>
+                  <span className="text-[28px] font-bold text-[#231A12] group-hover:text-[#a55a29] transition-colors duration-200 leading-tight tracking-tight">
+                    {section.label}
+                  </span>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    className="text-[#a55a29] opacity-0 group-hover:opacity-100 -translate-x-3 group-hover:translate-x-0 transition-all duration-250"
+                  >
+                    <path
+                      d="M3 10h14M10 4l6 6-6 6"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </li>
             ))}
+          </ul>
+
+          {/* CTA — cascades in after all links */}
+          <div
+            style={{
+              opacity: menuOpen ? 1 : 0,
+              transform: menuOpen ? "translateX(0)" : "translateX(48px)",
+              transition: "opacity 0.38s ease, transform 0.38s ease",
+              transitionDelay: menuOpen ? `${80 + sections.length * 60}ms` : "0ms",
+            }}
+            className="mt-8"
+          >
+            <Link
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#382413] text-white text-[15px] font-semibold hover:bg-[#2f1f14] active:scale-[0.98] transition-all duration-200 shadow-md"
+            >
+              Say Hello →
+            </Link>
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Slide Sections */}
       <main className="snap-y md:snap-mandatory overflow-y-auto scroll-smooth">
@@ -97,7 +163,7 @@ export default function Portfolio() {
           <section
             key={section.id}
             id={section.id}
-            className="bg-[#fff7f0] snap-start md:min-h-screen flex items-center justify-center px-4 py-8 sm:py-12"
+            className="bg-[#fff7f0] snap-start md:min-h-screen flex items-center justify-center px-4 py-6 sm:py-12"
           >
             <div className="w-full">{section.component}</div>
           </section>

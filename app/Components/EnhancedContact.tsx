@@ -124,6 +124,7 @@ const EnhancedContact = () => {
                 onChange={handleChange}
                 required
                 rows={5}
+                className="resize-none overflow-hidden"
               />
             </div>
 
