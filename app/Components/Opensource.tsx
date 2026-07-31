@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   GitPullRequest,
   Github,
@@ -27,6 +27,14 @@ export default function OpenSourceSection() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [visiblePrCount, setVisiblePrCount] = useState(3)
+  const prSectionRef = useRef<HTMLDivElement>(null)
+
+  const handleSelectOrg = (org: Organization) => {
+    setSelectedOrg(org)
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      prSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   useEffect(() => {
     const fetchGithubContributions = async () => {
@@ -140,7 +148,7 @@ export default function OpenSourceSection() {
             organizations.map((org) => (
               <button
                 key={org.name}
-                onClick={() => setSelectedOrg(org)}
+                onClick={() => handleSelectOrg(org)}
                 className={`text-left bg-white rounded-[30px] border p-6 transition-all duration-300 ${
                   activeOrg?.name === org.name
                     ? 'border-[#B66A2C] shadow-md -translate-y-1'
@@ -170,7 +178,10 @@ export default function OpenSourceSection() {
         </div>
 
         {/* Pull Requests List */}
-        <div className="bg-white rounded-[30px] border border-[#E8D9CB] shadow-sm p-8 md:p-10">
+        <div
+          ref={prSectionRef}
+          className="bg-white rounded-[30px] border border-[#E8D9CB] shadow-sm p-8 md:p-10 scroll-mt-4"
+        >
           <div className="flex items-center justify-between mb-8">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-[#F3E2D5] text-[#B66A2C] text-xs tracking-[0.25em] uppercase font-semibold mb-3">
