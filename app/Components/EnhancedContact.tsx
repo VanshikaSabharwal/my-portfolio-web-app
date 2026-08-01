@@ -9,8 +9,10 @@ import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import { FaLinkedin, FaPaperPlane, FaCheckCircle, FaExclamationCircle, FaEnvelope } from "react-icons/fa"
 import { RiTwitterXFill } from "react-icons/ri"
+import { useLanguage } from "../context/LanguageContext"
 
 const EnhancedContact = () => {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -66,10 +68,10 @@ const EnhancedContact = () => {
         }`}
       >
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          Get In Touch
+          {t("contact.title")}
         </h1>
         <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-          I&apos;d love to hear from you! Whether you have a project in mind or just want to connect, feel free to reach out.
+          {t("contact.subtitle")}
         </p>
       </div>
 
@@ -84,13 +86,13 @@ const EnhancedContact = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-card-foreground font-semibold">
-                Name
+                {t("contact.name")}
               </Label>
               <Input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Your Name"
+                placeholder={t("contact.yourName")}
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -99,7 +101,7 @@ const EnhancedContact = () => {
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-card-foreground font-semibold">
-                Email
+                {t("contact.email")}
               </Label>
               <Input
                 id="email"
@@ -114,12 +116,12 @@ const EnhancedContact = () => {
 
             <div className="space-y-2">
               <Label htmlFor="message" className="text-card-foreground font-semibold">
-                Message
+                {t("contact.message")}
               </Label>
               <Textarea
                 id="message"
                 name="message"
-                placeholder="Tell me about your project or just say hello!"
+                placeholder={t("contact.messagePlaceholder")}
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -136,12 +138,12 @@ const EnhancedContact = () => {
               {isSubmitting ? (
                 <>
                   <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary-foreground border-t-transparent"></div>
-                  Sending...
+                  {t("contact.sending")}
                 </>
               ) : (
                 <>
                   <FaPaperPlane />
-                  Send Message
+                  {t("contact.sendMessage")}
                 </>
               )}
             </Button>
@@ -149,13 +151,13 @@ const EnhancedContact = () => {
             {status === "success" && (
               <div className="flex items-center gap-2 text-green-600 bg-green-50 p-3 rounded-lg animate-fade-in-up">
                 <FaCheckCircle />
-                <span>Message sent successfully! I&apos;ll get back to you soon.</span>
+                <span>{t("contact.successMessage")}</span>
               </div>
             )}
             {status === "error" && (
               <div className="flex items-center gap-2 text-red-600 bg-red-50 p-3 rounded-lg animate-fade-in-up">
                 <FaExclamationCircle />
-                <span>Failed to send message. Please try again.</span>
+                <span>{t("contact.errorMessage")}</span>
               </div>
             )}
           </form>
@@ -167,7 +169,7 @@ const EnhancedContact = () => {
             isVisible ? "animate-slide-in-right animate-delay-200" : "opacity-0"
           } w-full break-words`}
         >
-          <h3 className="text-xl sm:text-2xl font-bold text-card-foreground mb-6">Let&apos;s Connect</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-card-foreground mb-6">{t("contact.letsConnect")}</h3>
           <div className="space-y-4">
             {/* Email */}
 <Link
@@ -181,7 +183,7 @@ const EnhancedContact = () => {
     <FaEnvelope className="text-black text-lg sm:text-xl" />
   </div>
   <div>
-    <p className="font-semibold text-card-foreground">Email</p>
+    <p className="font-semibold text-card-foreground">{t("contact.email")}</p>
     <p className="text-muted-foreground text-sm sm:text-base">vanshikasabharwalwork@gmail.com</p>
   </div>
 </Link>
@@ -200,7 +202,7 @@ const EnhancedContact = () => {
   </div>
   <div>
     <p className="font-semibold text-card-foreground">LinkedIn</p>
-    <p className="text-muted-foreground text-sm sm:text-base">Connect with me</p>
+    <p className="text-muted-foreground text-sm sm:text-base">{t("contact.connectWithMe")}</p>
   </div>
 </Link>
 
@@ -218,7 +220,7 @@ const EnhancedContact = () => {
   </div>
   <div>
     <p className="font-semibold text-card-foreground">Twitter</p>
-    <p className="text-muted-foreground text-sm sm:text-base">Follow me</p>
+    <p className="text-muted-foreground text-sm sm:text-base">{t("contact.followMe")}</p>
   </div>
 </Link>
 

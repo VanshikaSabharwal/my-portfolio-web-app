@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaHandPeace } from "react-icons/fa";
@@ -6,8 +7,10 @@ import { PiPlant } from "react-icons/pi";
 import { GrLocationPin } from "react-icons/gr";
 import { GiSandsOfTime } from "react-icons/gi";
 import { MdEmail } from "react-icons/md";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Intro = () => {
+  const { t } = useLanguage();
   return (
     <section className="relative flex flex-col items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#fff6ef] to-transparent pointer-events-none" />
@@ -30,13 +33,13 @@ const Intro = () => {
 
         <span className="inline-flex items-center rounded-full bg-[#f5e3d7] px-4 py-2 text-sm font-medium text-[#8b4e2f] mb-6">
           <span className="mr-2 text-xs">•</span>
-          SOFTWARE ENGINEER
+          {t("intro.role")}
           <span className="ml-2 text-xs">•</span>
         </span>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#111827] leading-tight">
-          Hello, I’m <span className="text-[#a75d32]">Vanshika Sabharwal</span>,<br />
-          Nice to meet you! <span aria-hidden="true">
+          {t("intro.greeting")} <span className="text-[#a75d32]">Vanshika Sabharwal</span>,<br />
+          {t("intro.niceToMeetYou")} <span aria-hidden="true">
             <PiHandWavingBold className="inline-block ml-1" />
           </span>
         </h1>
@@ -56,7 +59,7 @@ const Intro = () => {
             href="/contact"
             className="inline-flex items-center justify-center rounded-full bg-[#37241c] px-8 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-[#2c1d16]"
           >
-            <span className="mr-2">Hire Me</span>
+            <span className="mr-2">{t("intro.hireMe")}</span>
           </Link>
 
           <Link
@@ -64,7 +67,7 @@ const Intro = () => {
             download
             className="inline-flex items-center justify-center rounded-full border border-[#37241c] bg-white px-8 py-3 text-sm font-medium text-[#37241c] shadow-sm transition hover:bg-[#f9f4ef]"
           >
-            Download CV
+            {t("intro.downloadCv")}
           </Link>
         </div>
 
@@ -73,7 +76,7 @@ const Intro = () => {
             <span className="text-[#a75d32]">
               <GrLocationPin />
             </span>
-            India
+            {t("intro.india")}
           </div>
           <div className="hidden sm:inline-block h-4 w-px bg-[#d1d5db]" />
           <div className="inline-flex items-center gap-2">
@@ -87,7 +90,7 @@ const Intro = () => {
             <span className="text-[#a75d32]">
               <GiSandsOfTime />
             </span>
-            Open to opportunities
+            {t("intro.openToOpportunities")}
           </div>
         </div>
       </div>

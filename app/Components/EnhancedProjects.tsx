@@ -7,12 +7,14 @@ import { Button } from "@/components/ui/button"
 import { TiArrowRightThick } from "react-icons/ti"
 import { IoLogoGithub } from "react-icons/io5"
 import { AiOutlineClose } from "react-icons/ai"
+import { useLanguage } from "../context/LanguageContext"
 
 // Project data
 const projectData = [
   {
     name: "Ko-lab",
     description: "A website to meet the desire of working on projects together as a team in real time.",
+    japaneseDescription: "チームでリアルタイムに共同作業をしたいというニーズに応えるウェブサイトです。",
     imageUrls: ["/images/ko-lab-1.png", "/images/ko-lab-2.png", "/images/ko-lab-3.png"],
     liveUrl: "https://ko-lab.vercel.app/",
     githubUrl: "https://github.com/VanshikaSabharwal/ko-lab",
@@ -20,6 +22,7 @@ const projectData = [
   {
     name: "V-Wallet-Web-App",
     description: "V Wallet is a web app inspired by Paytm, offering secure and seamless peer-to-peer payments and fund management.",
+    japaneseDescription: "V WalletはPaytmに着想を得たウェブアプリで、安全でシームレスな個人間送金と資金管理を提供します。",
     imageUrls: ["/images/v-wallet-1.png", "/images/v-wallet-2.png", "/images/v-wallet-3.png", "/images/v-wallet-4.png"],
     liveUrl: "https://v-wallet-user-app.vercel.app/",
     githubUrl: "https://github.com/VanshikaSabharwal/v-wallet",
@@ -48,6 +51,7 @@ const projectData = [
   {
     name: "Next Flow",
     description: "Next Flow is a visual, no-code workflow editor where you drag and drop nodes — text, images, video, AI models — and connect them into powerful automated pipelines.",
+    japaneseDescription: "Next Flowは、テキスト、画像、動画、AIモデルなどのノードをドラッグ&ドロップして接続し、強力な自動化パイプラインを構築できる、ノーコードのビジュアルワークフローエディタです。",
     imageUrls: ["/images/next-flow-1.png","/images/next-flow-2.png","/images/next-flow-3.png","/images/next-flow-4.png", "/images/next-flow-5.png","/images/next-flow-6.png"],
     liveUrl: "https://next-flow-pi.vercel.app",
     githubUrl: "https://github.com/VanshikaSabharwal/NextFlow",
@@ -55,6 +59,7 @@ const projectData = [
   {
     name: "Legal Docs",
     description: "Legal Docs is a legal document tool with pre-built templates you can edit with your voice — just speak your changes, and the document updates itself.",
+    japaneseDescription: "Legal Docsは、あらかじめ用意されたテンプレートを音声で編集できる法的文書作成ツールです。変更内容を話すだけで、文書が自動的に更新されます。",
     imageUrls: ["/images/legal-docs-1.png", "/images/legal-docs-2.png", "/images/legal-docs-3.png", "/images/legal-docs-4.png"],
     liveUrl: "https://legal-docs-website.vercel.app",
     githubUrl: "https://github.com/VanshikaSabharwal/legal-docs",
@@ -62,6 +67,7 @@ const projectData = [
 ]
 
 const EnhancedProjects = () => {
+  const { t, locale } = useLanguage()
   const [showModal, setShowModal] = useState(false)
   const [currentProject, setCurrentProject] = useState<any>(null)
   const [currentImage, setCurrentImage] = useState(0)
@@ -98,10 +104,10 @@ const EnhancedProjects = () => {
       {/* Section Heading */}
       <div className={`text-center transition-all duration-700 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-          My Projects
+          {t("projects.title")}
         </h1>
         <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-          Here are some of the projects I&apos;ve worked on, showcasing my skills in web development and design.
+          {t("projects.subtitle")}
         </p>
       </div>
 
@@ -134,7 +140,7 @@ const EnhancedProjects = () => {
                 {project.name}
               </h2>
               <p className="text-card-foreground/70 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                {project.description}
+                {locale === "jp" && project.japaneseDescription ? project.japaneseDescription : project.description}
               </p>
 
               {/* Buttons */}
@@ -142,13 +148,13 @@ const EnhancedProjects = () => {
                 <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <Button size="sm" className="flex items-center gap-2 hover:scale-105 transition-transform duration-200">
                     {/* <TiArrowRightThick /> */}
-                    Live Demo
+                    {t("projects.liveDemo")}
                   </Button>
                 </Link>
                 <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="sm" className="flex items-center gap-2 bg-transparent hover:scale-105 transition-transform duration-200">
                     <IoLogoGithub />
-                    Code
+                    {t("projects.code")}
                   </Button>
                 </Link>
               </div>
@@ -186,16 +192,18 @@ const EnhancedProjects = () => {
               </h2>
 
               <p className="text-card-foreground/80 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">
-                {currentProject.description}
+                {locale === "jp" && currentProject.japaneseDescription
+                  ? currentProject.japaneseDescription
+                  : currentProject.description}
               </p>
 
               {/* Modal Controls */}
               <div className="flex justify-between mt-2">
                 <Button onClick={prevImage} className="flex items-center gap-2">
-                  &lt; Prev
+                  &lt; {t("projects.prev")}
                 </Button>
                 <Button onClick={nextImage} className="flex items-center gap-2">
-                  Next &gt;
+                  {t("projects.next")} &gt;
                 </Button>
               </div>
             </div>

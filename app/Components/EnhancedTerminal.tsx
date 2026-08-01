@@ -2,8 +2,10 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Card } from "@/components/ui/card"
+import { useLanguage } from "../context/LanguageContext"
 
 const EnhancedTerminal: React.FC = () => {
+  const { t } = useLanguage()
   const [currentLine, setCurrentLine] = useState("")
   const [history, setHistory] = useState<string[]>([])
   const [isTyping, setIsTyping] = useState(false)
@@ -11,11 +13,11 @@ const EnhancedTerminal: React.FC = () => {
   const terminalRef = useRef<HTMLDivElement>(null)
 
   const commands = {
-    help: "Available commands: about, skills, projects, contact, clear",
-    about: "Software developer passionate about creating innovative applications",
-    skills: "React • Next.js • TypeScript • Node.js • Python • MongoDB",
-    projects: "Check out my portfolio of web applications and tools",
-    contact: "Email: vanshikasabharwalwork@gmail.com",
+    help: t("terminal.help"),
+    about: t("terminal.about"),
+    skills: t("terminal.skills"),
+    projects: t("terminal.projects"),
+    contact: t("terminal.contact"),
     clear: "CLEAR_TERMINAL",
   }
 
@@ -36,7 +38,7 @@ const EnhancedTerminal: React.FC = () => {
 
   const handleCommand = (cmd: string) => {
     const command = cmd.toLowerCase().trim()
-    const output = commands[command as keyof typeof commands] || `Command not found: ${cmd}`
+    const output = commands[command as keyof typeof commands] || t("terminal.commandNotFound", { cmd })
 
     if (output === "CLEAR_TERMINAL") {
       setHistory([])
@@ -55,7 +57,7 @@ const EnhancedTerminal: React.FC = () => {
   }
 
   useEffect(() => {
-    const welcomeText = "Welcome to Vanshika's Terminal! Type 'help' to get started."
+    const welcomeText = t("terminal.welcome")
     setTimeout(() => {
       typeWriter(welcomeText, () => {
         setHistory([welcomeText])
@@ -113,7 +115,7 @@ const EnhancedTerminal: React.FC = () => {
               onChange={(e) => setCurrentLine(e.target.value)}
               onKeyPress={handleKeyPress}
               className="bg-transparent border-none outline-none flex-1 text-card-foreground text-sm sm:text-base md:text-lg py-1"
-              placeholder={isTyping ? "" : "Type a command..."}
+              placeholder={isTyping ? "" : t("terminal.placeholder")}
               disabled={isTyping}
             />
             <span className="animate-pulse text-black hidden sm:inline">|</span>

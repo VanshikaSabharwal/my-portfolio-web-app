@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Quote, Linkedin } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 type Recommendation = {
   id: string
@@ -22,6 +23,7 @@ const fallbackRecommendations: Recommendation[] = [
 ]
 
 export default function LinkedInRecommendationsSection() {
+  const { t } = useLanguage()
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -61,12 +63,12 @@ export default function LinkedInRecommendationsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1 rounded-full bg-[#F3E2D5] text-[#B66A2C] text-xs tracking-[0.25em] uppercase font-semibold">
-            Recommendations
+            {t("nav.recommendations")}
           </span>
 
           <h2 className="mt-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-tight font-serif text-[#081B37]">
-            Words from
-            <span className="text-[#B66A2C] italic"> CEO & Mentors.</span>
+            {t("recommendations.wordsFrom")}
+            <span className="text-[#B66A2C] italic"> {t("recommendations.ceoMentors")}</span>
           </h2>
 
           <div className="mt-6 flex items-center justify-center gap-4">
@@ -75,7 +77,7 @@ export default function LinkedInRecommendationsSection() {
             <div className="w-16 h-px bg-[#D6B59C]" />
           </div>
 
-          {loading && <p className="mt-6 text-sm text-[#6A5F5A]">Loading recommendations from LinkedIn...</p>}
+          {loading && <p className="mt-6 text-sm text-[#6A5F5A]">{t("recommendations.loading")}</p>}
           {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
         </div>
 
@@ -105,7 +107,7 @@ export default function LinkedInRecommendationsSection() {
                     onClick={() => toggleExpanded(rec.id)}
                     className="mt-3 text-sm font-semibold text-[#B66A2C] hover:underline transition-colors duration-300"
                   >
-                    {isExpanded ? "Read less" : "Read more"}
+                    {isExpanded ? t("about.readLess") : t("about.readMore")}
                   </button>
                 )}
 

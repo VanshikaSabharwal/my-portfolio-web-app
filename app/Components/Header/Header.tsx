@@ -4,9 +4,11 @@ import Link from "next/link";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import { useSpring, animated } from "@react-spring/web";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, toggleLocale } = useLanguage();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -26,37 +28,37 @@ const Header = () => {
           href="/"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Home
+          {t("nav.home")}
         </Link>
         <Link
           href="/about"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          About
+          {t("nav.about")}
         </Link>
         <Link
           href="/projects"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Projects
+          {t("nav.projects")}
         </Link>
         <Link
           href="/terminal"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Terminal
+          {t("nav.terminal")}
         </Link>
         <Link
           href="/skills"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Skills
+          {t("nav.skills")}
         </Link>
         <Link
           href="/contact"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Contact
+          {t("nav.contact")}
         </Link>
       </div>
     );
@@ -72,37 +74,37 @@ const Header = () => {
           href="/"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Home
+          {t("nav.home")}
         </Link>
         <Link
           href="/about"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          About
+          {t("nav.about")}
         </Link>
         <Link
           href="/projects"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Projects
+          {t("nav.projects")}
         </Link>
         <Link
           href="/terminal"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Terminal
+          {t("nav.terminal")}
         </Link>
         <Link
           href="/skills"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Skills
+          {t("nav.skills")}
         </Link>
         <Link
           href="/contact"
           className="hover:-translate-y-2 duration-500 transition-all font-black text-tertiary-dark"
         >
-          Contact
+          {t("nav.contact")}
         </Link>
       </animated.div>
     );
@@ -110,10 +112,16 @@ const Header = () => {
 
   return (
     <header className="py-4 bg-black px-4 container text-xl flex flex-wrap items-center justify-between headerContainer">
-      <div className="portfolioTitle py-2.5 px-3">PortFolio</div>
+      <div className="portfolioTitle py-2.5 px-3">{t("brand.portfolio")}</div>
 
       {/* Hamburger Icon for Mobile View */}
-      <div className="flex flex-row items-center md:hidden z-50">
+      <div className="flex flex-row items-center gap-3 md:hidden z-50">
+        <button
+          onClick={toggleLocale}
+          className="text-sm font-bold text-white border border-white rounded-full px-3 py-1"
+        >
+          {t("lang.toggleLabel")}
+        </button>
         <button onClick={toggleMenu} className="text-3xl text-white">
           {menuOpen ? <IoCloseSharp /> : <IoReorderThreeSharp />}
         </button>
@@ -122,6 +130,12 @@ const Header = () => {
       {/* Menu for Desktop */}
       <div className="hidden md:flex items-center justify-between w-full">
         <HorizontalNav />
+        <button
+          onClick={toggleLocale}
+          className="text-sm font-bold text-white border border-white rounded-full px-3 py-1 ml-4 shrink-0 hover:bg-white hover:text-black transition-colors"
+        >
+          {t("lang.toggleLabel")}
+        </button>
       </div>
 
       {/* Menu for Mobile */}

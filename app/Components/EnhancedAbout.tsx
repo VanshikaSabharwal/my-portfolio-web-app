@@ -23,11 +23,13 @@ import {
   SiPostgresql,
   SiSupabase,
 } from "react-icons/si"
+import { useLanguage } from "../context/LanguageContext"
 
 type Skill = { name: string; icon: React.ReactNode; proficiency: number }
 type SkillCategory = { name: string; icon: React.ReactNode; skills: Skill[] }
 
 const EnhancedAbout = () => {
+  const { t } = useLanguage()
   const [activeCategory, setActiveCategory] = useState<string>("Frontend")
   const [isVisible, setIsVisible] = useState(false)
   const [bioExpanded, setBioExpanded] = useState(false)
@@ -101,11 +103,11 @@ const EnhancedAbout = () => {
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-700">
             <span className="mb-4 inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-[#8A5A32]">
               <span className="inline-block h-px w-6 bg-[#B87F45]" />
-              Open-Source Contributor · 2+ Years
+              {t("about.tagline")}
             </span>
 
             <h1 className="mb-6 font-serif text-4xl font-semibold leading-[1.05] text-[#231A12] sm:text-5xl md:text-6xl">
-              About <em className="font-medium italic text-[#A85B3E]">Me</em>
+              {t("about.titlePrefix")} <em className="font-medium italic text-[#A85B3E]">{t("about.titleEmphasis")}</em>
             </h1>
 
             <div className="relative max-w-[52ch]">
@@ -114,24 +116,10 @@ const EnhancedAbout = () => {
                   bioExpanded ? "max-h-[600px]" : "max-h-[128px]"
                 }`}
               >
-                <p>
-                  I&apos;m <strong className="font-bold text-[#231A12]">Vanshika Sabharwal</strong>, an open-source
-                  contributor for the past 2+ years.
-                </p>
-                <p>
-                  I&apos;ve completed two internships so far — one with the US-based organization{" "}
-                  <strong className="font-bold text-[#231A12]">The Palisadoes Foundation</strong>, and the second
-                  with the Bengaluru-based company <strong className="font-bold text-[#231A12]">Desklinq</strong>.
-                </p>
-                <p>
-                  I have experience working with both international and national teams, which has helped me
-                  improve my management and communication skills, along with my proficiency in languages.
-                </p>
-                <p>
-                  I am fluent in English and Hindi, and I&apos;m currently working on my Turkish and Japanese. I&apos;ve
-                  contributed to open source repositories such as MetaCall and The Palisadoes Foundation, both
-                  of which frequently appear in Google Summer of Code (GSoC).
-                </p>
+                <p>{t("about.bio1")}</p>
+                <p>{t("about.bio2")}</p>
+                <p>{t("about.bio3")}</p>
+                <p>{t("about.bio4")}</p>
               </div>
 
               {!bioExpanded && (
@@ -144,16 +132,16 @@ const EnhancedAbout = () => {
               onClick={() => setBioExpanded((prev) => !prev)}
               className="mt-2 text-sm font-semibold cursor-pointer text-[#A85B3E] hover:underline sm:hidden"
             >
-              {bioExpanded ? "Read less" : "Read more"}
+              {bioExpanded ? t("about.readLess") : t("about.readMore")}
             </button>
 
             {/* Stamp row */}
             <div className="my-8 flex flex-wrap gap-3.5">
               {[
-                { num: "2+", label: "Yrs OSS", rot: -8 },
-                { num: "02", label: "Internships", rot: 6 },
-                { num: "EN·HI", label: "Fluent", rot: -4 },
-                { num: "TR·JA", label: "Learning", rot: 10, dim: true },
+                { num: "2+", label: t("about.stampYrsOss"), rot: -8 },
+                { num: "02", label: t("about.stampInternships"), rot: 6 },
+                { num: "EN·HI", label: t("about.stampFluent"), rot: -4 },
+                { num: "TR·JA", label: t("about.stampLearning"), rot: 10, dim: true },
               ].map((stamp) => (
                 <div
                   key={stamp.label}
@@ -176,7 +164,7 @@ const EnhancedAbout = () => {
             <div className="flex flex-wrap items-center gap-3.5">
               <Link href="mailto:vanshikasabharwalwork@gmail.com" target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-full bg-[#5C3A21] px-6 font-bold text-[#FFF9F1] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#A85B3E] hover:shadow-[0_14px_28px_-10px_rgba(168,91,62,0.45)]">
-                  Email Me →
+                  {t("about.emailMe")}
                 </Button>
               </Link>
               <Link href="https://www.linkedin.com/in/--vanshika--/" target="_blank" rel="noopener noreferrer">
@@ -242,7 +230,7 @@ const EnhancedAbout = () => {
                 Vanshika Sabharwal
               </div>
               <div className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#8A5A32]">
-                Software Engineer
+                {t("about.softwareEngineer")}
               </div>
             </div>
           </div>
@@ -256,7 +244,7 @@ const EnhancedAbout = () => {
         }`}
       >
         <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-card-foreground mb-6 sm:mb-8 text-center">
-          My Skills
+          {t("about.mySkills")}
         </h2>
 
         {/* Category Navigation */}

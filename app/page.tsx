@@ -13,9 +13,11 @@ import LinkedInRecommendationsSection from "./Components/LinkedInRecommendations
 import blogsData from "../blogs.json";
 import Link from "next/link"
 import Image from "next/image"
+import { useLanguage } from "./context/LanguageContext"
 
 export default function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { t, toggleLocale } = useLanguage()
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : ""
@@ -25,14 +27,14 @@ export default function Portfolio() {
   }, [menuOpen])
 
   const sections = [
-    { id: "intro", label: "Intro", component: <Intro /> },
-    { id: "about", label: "About", component: <EnhancedAbout /> },
-    { id: "opensource", label: "Open Source", component: <OpenSourceSection /> },
-    { id: "projects", label: "Projects", component: <EnhancedProjects /> },
-    { id: "recommendations", label: "Recommendations", component: <LinkedInRecommendationsSection /> },
-    { id: "blogs", label: "My Blogs", component: <BlogShowcase blogs={blogsData}/>},
-    { id: "terminal", label: "Terminal", component: <EnhancedTerminal /> },
-    { id: "contact", label: "Contact", component: <EnhancedContact /> },
+    { id: "intro", label: t("nav.intro"), component: <Intro /> },
+    { id: "about", label: t("nav.about"), component: <EnhancedAbout /> },
+    { id: "opensource", label: t("nav.opensource"), component: <OpenSourceSection /> },
+    { id: "projects", label: t("nav.projects"), component: <EnhancedProjects /> },
+    { id: "recommendations", label: t("nav.recommendations"), component: <LinkedInRecommendationsSection /> },
+    { id: "blogs", label: t("nav.myblogs"), component: <BlogShowcase blogs={blogsData}/>},
+    { id: "terminal", label: t("nav.terminal"), component: <EnhancedTerminal /> },
+    { id: "contact", label: t("nav.contact"), component: <EnhancedContact /> },
   ]
 
   return (
@@ -61,29 +63,38 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Hamburger (mobile only) — morphs into a close icon */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            className="sm:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-[5px] rounded-lg transition-colors duration-200 hover:bg-muted active:bg-muted/70"
-          >
-            <span
-              className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-300 ease-in-out ${
-                menuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-200 ease-in-out ${
-                menuOpen ? "w-0 opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-300 ease-in-out ${
-                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
-            />
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleLocale}
+              className="text-sm font-bold text-foreground border border-border rounded-full px-3 py-1.5 hover:bg-muted transition-colors"
+            >
+              {t("lang.toggleLabel")}
+            </button>
+
+            {/* Hamburger (mobile only) — morphs into a close icon */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              className="sm:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-[5px] rounded-lg transition-colors duration-200 hover:bg-muted active:bg-muted/70"
+            >
+              <span
+                className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-300 ease-in-out ${
+                  menuOpen ? "rotate-45 translate-y-[7px]" : ""
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-200 ease-in-out ${
+                  menuOpen ? "w-0 opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`block h-[2px] w-5 rounded-full bg-[#231A12] origin-center transition-all duration-300 ease-in-out ${
+                  menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+                }`}
+              />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -151,7 +162,7 @@ export default function Portfolio() {
               onClick={() => setMenuOpen(false)}
               className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#382413] text-white text-[15px] font-semibold hover:bg-[#2f1f14] active:scale-[0.98] transition-all duration-200 shadow-md"
             >
-              Say Hello →
+              {t("nav.sayhello")}
             </Link>
           </div>
         </div>
@@ -174,7 +185,7 @@ export default function Portfolio() {
       <footer className="border-t border-border bg-muted/30 py-6 sm:py-8">
         <div className="max-w-6xl mx-auto px-4 text-center text-sm sm:text-base">
           <p className="text-muted-foreground">
-            © {new Date().getFullYear()} Vanshika Sabharwal
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
       </footer>

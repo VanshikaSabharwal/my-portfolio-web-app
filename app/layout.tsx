@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { Merienda } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "./context/LanguageContext";
 import Intro from "./Components/Intro/Intro"
 import EnhancedTerminal from "./Components/EnhancedTerminal"
 import EnhancedAbout from "./Components/EnhancedAbout"
@@ -45,7 +46,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <EnhancedContact /> */}
         {/* <Header /> */}
 
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         {/* </ThemeProvider> */}
       </body>
     </html>

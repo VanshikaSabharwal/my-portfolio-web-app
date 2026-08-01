@@ -8,6 +8,7 @@ import {
   ExternalLink,
 } from 'lucide-react'
 import Image from "next/image"
+import { useLanguage } from "../context/LanguageContext"
 
 type Pr = {
   title: string
@@ -22,6 +23,7 @@ type Organization = {
 }
 
 export default function OpenSourceSection() {
+  const { t } = useLanguage()
   const [organizations, setOrganizations] = useState<Organization[]>([])
   const [selectedOrg, setSelectedOrg] = useState<Organization | null>(null)
   const [loading, setLoading] = useState(true)
@@ -71,14 +73,14 @@ export default function OpenSourceSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1 rounded-full bg-[#F3E2D5] text-[#B66A2C] text-xs tracking-[0.25em] uppercase font-semibold">
-            Open Source
+            {t("opensource.badge")}
           </span>
 
           <h2 className="mt-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl leading-tight font-serif text-[#081B37]">
-            Contributions,
+            {t("opensource.headingLine1")}
             <br />
-            pull requests, and
-            <span className="text-[#B66A2C] italic"> communities.</span>
+            {t("opensource.headingLine2")}
+            <span className="text-[#B66A2C] italic"> {t("opensource.headingLine3")}</span>
           </h2>
 
           <div className="mt-6 flex items-center justify-center gap-4">
@@ -96,10 +98,10 @@ export default function OpenSourceSection() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-[#B66A2C] font-semibold">
-                Activity Heatmap
+                {t("opensource.activityHeatmap")}
               </p>
               <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-[#081B37]">
-                GitHub Contributions
+                {t("opensource.githubContributions")}
               </h3>
             </div>
           </div>
@@ -134,7 +136,7 @@ export default function OpenSourceSection() {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {loading ? (
             <div className="md:col-span-3 rounded-[30px] border border-[#E8D9CB] bg-white p-10 text-center text-[#6E6E6E] shadow-sm">
-              Loading GitHub contributions...
+              {t("opensource.loading")}
             </div>
           ) : error ? (
             <div className="md:col-span-3 rounded-[30px] border border-[#E8D9CB] bg-white p-10 text-center text-[#6E6E6E] shadow-sm">
@@ -142,7 +144,7 @@ export default function OpenSourceSection() {
             </div>
           ) : organizations.length === 0 ? (
             <div className="md:col-span-3 rounded-[30px] border border-[#E8D9CB] bg-white p-10 text-center text-[#6E6E6E] shadow-sm">
-              No GitHub contributions found yet.
+              {t("opensource.noContributions")}
             </div>
           ) : (
             organizations.map((org) => (
@@ -161,7 +163,7 @@ export default function OpenSourceSection() {
                   </div>
 
                   <span className="px-3 py-1 rounded-full bg-[#F9EEE5] text-[#B66A2C] text-xs tracking-[0.2em] uppercase font-semibold">
-                    {org.prs.length} PRs
+                    {t("opensource.prsCount", { count: org.prs.length })}
                   </span>
                 </div>
 
@@ -170,7 +172,7 @@ export default function OpenSourceSection() {
                 </h3>
 
                 <p className="mt-4 text-[#6E6E6E] italic">
-                  Click to explore merged pull requests.
+                  {t("opensource.clickToExplore")}
                 </p>
               </button>
             ))
@@ -185,11 +187,11 @@ export default function OpenSourceSection() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-[#F3E2D5] text-[#B66A2C] text-xs tracking-[0.25em] uppercase font-semibold mb-3">
-                Pull Requests
+                {t("opensource.pullRequests")}
               </span>
 
               <h3 className="text-lg sm:text-2xl md:text-3xl font-serif text-[#081B37]">
-                {activeOrg?.name ?? 'Contributions'}
+                {activeOrg?.name ?? t("opensource.contributions")}
               </h3>
             </div>
 
@@ -200,10 +202,10 @@ export default function OpenSourceSection() {
   {loading || !activeOrg ? (
     <div className="rounded-2xl border border-[#F0E4DA] bg-[#FCF8F4] p-10 text-center text-[#6E6E6E]">
       {loading
-        ? 'Loading pull request details...'
+        ? t("opensource.loadingPrDetails")
         : error
         ? error
-        : 'Select an organization to view pull request details.'}
+        : t("opensource.selectOrg")}
     </div>
   ) : (
     <>
@@ -240,14 +242,14 @@ export default function OpenSourceSection() {
               }
               className="px-6 py-3 rounded-full bg-[#F3E2D5] text-[#B66A2C] font-semibold hover:bg-[#EBD4C2] transition"
             >
-              Show More
+              {t("opensource.showMore")}
             </button>
           ) : (
             <button
               onClick={() => setVisiblePrCount(3)}
               className="px-6 py-3 rounded-full bg-[#F9EEE5] text-[#B66A2C] font-semibold hover:bg-[#F3E2D5] transition"
             >
-              Show Less
+              {t("opensource.showLess")}
             </button>
           )}
         </div>
